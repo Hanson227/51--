@@ -9,8 +9,7 @@
     "outDir": "build\\Debug",
     "incDirs": [
         "d:\\Keil5\\C51\\INC\\Atmel",
-        "D:\\Keil5\\C51\\INC",
-        "src"
+        "D:\\Keil5\\C51\\INC"
     ],
     "libDirs": [],
     "defines": [

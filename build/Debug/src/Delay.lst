@@ -1,11 +1,11 @@
-C51 COMPILER V9.54   DELAY                                                                 02/13/2022 23:28:28 PAGE 1   
+C51 COMPILER V9.54   DELAY                                                                 02/14/2022 00:11:31 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE DELAY
 OBJECT MODULE PLACED IN .\build\Debug\src\Delay.o
 COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.exe .\SRC\DELAY.C PRINT(.\build\Debug\src\Delay.lst) OMF2 TABS(4) CODE NOCOND 
-                    -SYMBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(d:\Keil5\C51\INC\Atmel;D:\Keil5\C51\INC;.\src) DEFINE(__UVISION_VERSIO
-                    -N=526) OBJECT(.\build\Debug\src\Delay.o)
+                    -SYMBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(d:\Keil5\C51\INC\Atmel;D:\Keil5\C51\INC) DEFINE(__UVISION_VERSION=526)
+                    - OBJECT(.\build\Debug\src\Delay.o)
 
 line level    source
 
@@ -28,7 +28,7 @@ line level    source
   17   2              a--;
   18   2          }
   19   1      }
-C51 COMPILER V9.54   DELAY                                                                 02/13/2022 23:28:28 PAGE 2   
+C51 COMPILER V9.54   DELAY                                                                 02/14/2022 00:11:31 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -71,7 +71,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 001C 22                RET     
              ; FUNCTION _Delay (END)
 
-C51 COMPILER V9.54   DELAY                                                                 02/13/2022 23:28:28 PAGE 3   
+C51 COMPILER V9.54   DELAY                                                                 02/14/2022 00:11:31 PAGE 3   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====

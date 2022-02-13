@@ -1,11 +1,11 @@
-C51 COMPILER V9.54   MAIN                                                                  02/13/2022 23:28:29 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  02/14/2022 00:11:32 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\build\Debug\src\main.o
 COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.exe .\SRC\MAIN.C PRINT(.\build\Debug\src\main.lst) OMF2 TABS(4) CODE NOCOND SY
-                    -MBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(d:\Keil5\C51\INC\Atmel;D:\Keil5\C51\INC;.\src) DEFINE(__UVISION_VERSION=
-                    -526) OBJECT(.\build\Debug\src\main.o)
+                    -MBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(d:\Keil5\C51\INC\Atmel;D:\Keil5\C51\INC) DEFINE(__UVISION_VERSION=526) O
+                    -BJECT(.\build\Debug\src\main.o)
 
 line level    source
 
@@ -18,74 +18,211 @@ line level    source
    7          typedef unsigned char u8;
    8          typedef unsigned int u16;
    9          
-  10          u8 Date;
-  11          
-  12          int main()
-  13          {
-  14   1          LCD_Init();
-  15   1          LCD_ShowString(1,1,"Hello");
-  16   1          AT24C02_WriteByte(1,6);
-  17   1          Delay(5);
-  18   1          Date=AT24C02_ReadByte(1);
-  19   1          LCD_ShowNum(2,1,Date,3);
-  20   1          while (1)
-  21   1          {
-  22   2              
-  23   2          }
-  24   1          
-  25   1      }
-C51 COMPILER V9.54   MAIN                                                                  02/13/2022 23:28:29 PAGE 2   
+  10          u8 KeyNum;
+  11          u16 Num;
+  12          
+  13          int main()
+  14          {
+  15   1          LCD_Init();
+  16   1          LCD_ShowNum(1,1,Num,5);
+  17   1          while(1)
+  18   1          {
+  19   2              KeyNum=Key();
+  20   2              if(KeyNum==1)   //K1按键，Num自增
+  21   2              {
+  22   3                  Num++;
+  23   3                  LCD_ShowNum(1,1,Num,5);
+  24   3              }
+  25   2              if(KeyNum==2)   //K2按键，Num自减
+  26   2              {
+  27   3                  Num--;
+  28   3                  LCD_ShowNum(1,1,Num,5);
+  29   3              }
+  30   2              if(KeyNum==3)   //K3按键，向AT24C02写入数据
+  31   2              {
+  32   3                  AT24C02_WriteByte(0,Num%256);
+  33   3                  Delay(5);
+  34   3                  AT24C02_WriteByte(1,Num/256);
+  35   3                  Delay(5);
+  36   3                  LCD_ShowString(2,1,"Write OK");
+  37   3                  Delay(1000);
+  38   3                  LCD_ShowString(2,1,"        ");
+  39   3              }
+  40   2              if(KeyNum==4)   //K4按键，从AT24C02读取数据
+  41   2              {
+  42   3                  Num=AT24C02_ReadByte(0);
+  43   3                  Num|=AT24C02_ReadByte(1)<<8;
+  44   3                  LCD_ShowNum(1,1,Num,5);
+  45   3                  LCD_ShowString(2,1,"Read OK ");
+  46   3                  Delay(1000);
+  47   3                  LCD_ShowString(2,1,"        ");
+  48   3              }
+  49   2          }
+  50   1          
+  51   1      }
+C51 COMPILER V9.54   MAIN                                                                  02/14/2022 00:11:32 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
 
              ; FUNCTION main (BEGIN)
-                                           ; SOURCE LINE # 12
                                            ; SOURCE LINE # 13
                                            ; SOURCE LINE # 14
-0000 120000      E     LCALL   LCD_Init
                                            ; SOURCE LINE # 15
-0003 7BFF              MOV     R3,#0FFH
-0005 7A00        R     MOV     R2,#HIGH ?SC_0
-0007 7900        R     MOV     R1,#LOW ?SC_0
-0009 7D01              MOV     R5,#01H
-000B 7F01              MOV     R7,#01H
-000D 120000      E     LCALL   _LCD_ShowString
+0000 120000      E     LCALL   LCD_Init
                                            ; SOURCE LINE # 16
-0010 7D06              MOV     R5,#06H
-0012 7C00              MOV     R4,#00H
-0014 7F01              MOV     R7,#01H
-0016 120000      E     LCALL   _AT24C02_WriteByte
+0003 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
+0006 AB00        R     MOV     R3,Num+01H
+0008 AA00        R     MOV     R2,Num
+000A 7D01              MOV     R5,#01H
+000C 7F01              MOV     R7,#01H
+000E 120000      E     LCALL   _LCD_ShowNum
+0011         ?C0001:
                                            ; SOURCE LINE # 17
-0019 7F05              MOV     R7,#05H
-001B 7E00              MOV     R6,#00H
-001D 120000      E     LCALL   _Delay
                                            ; SOURCE LINE # 18
-0020 7F01              MOV     R7,#01H
-0022 120000      E     LCALL   _AT24C02_ReadByte
-0025 8F00        R     MOV     Date,R7
                                            ; SOURCE LINE # 19
-0027 EF                MOV     A,R7
-0028 FB                MOV     R3,A
-0029 7A00              MOV     R2,#00H
-002B 750003      E     MOV     ?_LCD_ShowNum?BYTE+04H,#03H
-002E 7D01              MOV     R5,#01H
-0030 7F02              MOV     R7,#02H
-0032 120000      E     LCALL   _LCD_ShowNum
-0035         ?C0001:
+0011 120000      E     LCALL   Key
+0014 8F00        R     MOV     KeyNum,R7
                                            ; SOURCE LINE # 20
+0016 E500        R     MOV     A,KeyNum
+0018 B40115            CJNE    A,#01H,?C0003
                                            ; SOURCE LINE # 21
+                                           ; SOURCE LINE # 22
+001B 0500        R     INC     Num+01H
+001D E500        R     MOV     A,Num+01H
+001F 7002              JNZ     ?C0008
+0021 0500        R     INC     Num
+0023         ?C0008:
                                            ; SOURCE LINE # 23
-0035 80FE              SJMP    ?C0001
+0023 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
+0026 FB                MOV     R3,A
+0027 AA00        R     MOV     R2,Num
+0029 7D01              MOV     R5,#01H
+002B 7F01              MOV     R7,#01H
+002D 120000      E     LCALL   _LCD_ShowNum
+                                           ; SOURCE LINE # 24
+0030         ?C0003:
+                                           ; SOURCE LINE # 25
+0030 E500        R     MOV     A,KeyNum
+0032 B40216            CJNE    A,#02H,?C0004
+                                           ; SOURCE LINE # 26
+                                           ; SOURCE LINE # 27
+0035 E500        R     MOV     A,Num+01H
+0037 1500        R     DEC     Num+01H
+0039 7002              JNZ     ?C0009
+003B 1500        R     DEC     Num
+003D         ?C0009:
+                                           ; SOURCE LINE # 28
+003D 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
+0040 AB00        R     MOV     R3,Num+01H
+0042 AA00        R     MOV     R2,Num
+0044 7D01              MOV     R5,#01H
+0046 7F01              MOV     R7,#01H
+0048 120000      E     LCALL   _LCD_ShowNum
+                                           ; SOURCE LINE # 29
+004B         ?C0004:
+                                           ; SOURCE LINE # 30
+004B E500        R     MOV     A,KeyNum
+004D 6403              XRL     A,#03H
+C51 COMPILER V9.54   MAIN                                                                  02/14/2022 00:11:32 PAGE 3   
+
+004F 7040              JNZ     ?C0005
+                                           ; SOURCE LINE # 31
+                                           ; SOURCE LINE # 32
+0051 FC                MOV     R4,A
+0052 AD00        R     MOV     R5,Num+01H
+0054 FF                MOV     R7,A
+0055 120000      E     LCALL   _AT24C02_WriteByte
+                                           ; SOURCE LINE # 33
+0058 7F05              MOV     R7,#05H
+005A 7E00              MOV     R6,#00H
+005C 120000      E     LCALL   _Delay
+                                           ; SOURCE LINE # 34
+005F E500        R     MOV     A,Num
+0061 FD                MOV     R5,A
+0062 7C00              MOV     R4,#00H
+0064 7F01              MOV     R7,#01H
+0066 120000      E     LCALL   _AT24C02_WriteByte
+                                           ; SOURCE LINE # 35
+0069 7F05              MOV     R7,#05H
+006B 7E00              MOV     R6,#00H
+006D 120000      E     LCALL   _Delay
+                                           ; SOURCE LINE # 36
+0070 7BFF              MOV     R3,#0FFH
+0072 7A00        R     MOV     R2,#HIGH ?SC_0
+0074 7900        R     MOV     R1,#LOW ?SC_0
+0076 7D01              MOV     R5,#01H
+0078 7F02              MOV     R7,#02H
+007A 120000      E     LCALL   _LCD_ShowString
+                                           ; SOURCE LINE # 37
+007D 7FE8              MOV     R7,#0E8H
+007F 7E03              MOV     R6,#03H
+0081 120000      E     LCALL   _Delay
+                                           ; SOURCE LINE # 38
+0084 7BFF              MOV     R3,#0FFH
+0086 7A00        R     MOV     R2,#HIGH ?SC_9
+0088 7900        R     MOV     R1,#LOW ?SC_9
+008A 7D01              MOV     R5,#01H
+008C 7F02              MOV     R7,#02H
+008E 120000      E     LCALL   _LCD_ShowString
+                                           ; SOURCE LINE # 39
+0091         ?C0005:
+                                           ; SOURCE LINE # 40
+0091 E500        R     MOV     A,KeyNum
+0093 6404              XRL     A,#04H
+0095 6003              JZ      $ + 5H
+0097 020000      R     LJMP    ?C0001
+                                           ; SOURCE LINE # 41
+                                           ; SOURCE LINE # 42
+009A FF                MOV     R7,A
+009B 120000      E     LCALL   _AT24C02_ReadByte
+009E 750000      R     MOV     Num,#00H
+00A1 8F00        R     MOV     Num+01H,R7
+                                           ; SOURCE LINE # 43
+00A3 7F01              MOV     R7,#01H
+00A5 120000      E     LCALL   _AT24C02_ReadByte
+00A8 EF                MOV     A,R7
+00A9 FE                MOV     R6,A
+00AA EE                MOV     A,R6
+00AB 4200        R     ORL     Num,A
+                                           ; SOURCE LINE # 44
+00AD 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
+00B0 AB00        R     MOV     R3,Num+01H
+C51 COMPILER V9.54   MAIN                                                                  02/14/2022 00:11:32 PAGE 4   
+
+00B2 AA00        R     MOV     R2,Num
+00B4 7D01              MOV     R5,#01H
+00B6 7F01              MOV     R7,#01H
+00B8 120000      E     LCALL   _LCD_ShowNum
+                                           ; SOURCE LINE # 45
+00BB 7BFF              MOV     R3,#0FFH
+00BD 7A00        R     MOV     R2,#HIGH ?SC_18
+00BF 7900        R     MOV     R1,#LOW ?SC_18
+00C1 7D01              MOV     R5,#01H
+00C3 7F02              MOV     R7,#02H
+00C5 120000      E     LCALL   _LCD_ShowString
+                                           ; SOURCE LINE # 46
+00C8 7FE8              MOV     R7,#0E8H
+00CA 7E03              MOV     R6,#03H
+00CC 120000      E     LCALL   _Delay
+                                           ; SOURCE LINE # 47
+00CF 7BFF              MOV     R3,#0FFH
+00D1 7A00        R     MOV     R2,#HIGH ?SC_9
+00D3 7900        R     MOV     R1,#LOW ?SC_9
+00D5 7D01              MOV     R5,#01H
+00D7 7F02              MOV     R7,#02H
+00D9 120000      E     LCALL   _LCD_ShowString
+                                           ; SOURCE LINE # 48
+                                           ; SOURCE LINE # 49
+00DC 020000      R     LJMP    ?C0001
              ; FUNCTION main (END)
 
-C51 COMPILER V9.54   MAIN                                                                  02/13/2022 23:28:29 PAGE 3   
+C51 COMPILER V9.54   MAIN                                                                  02/14/2022 00:11:32 PAGE 5   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
 
 
-Date . . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0000H  1
 P0 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0080H  1
 P1 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0090H  1
 P2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A0H  1
@@ -142,22 +279,24 @@ TI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
 RCAP2H . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
 PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
 SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
-C51 COMPILER V9.54   MAIN                                                                  02/13/2022 23:28:29 PAGE 4   
+T2EX . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
+C51 COMPILER V9.54   MAIN                                                                  02/14/2022 00:11:32 PAGE 6   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
 
 
-T2EX . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
 OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
 RCAP2L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
 main . . . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
 _AT24C02_WriteByte . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 C_T2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C9H  1
 WR . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+Key. . . . . . . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 u8 . . . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
 RCLK . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CDH  1
 TCLK . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CCH  1
+Num. . . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_INT    0000H  2
 SBUF . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0099H  1
 PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
 SCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
@@ -202,15 +341,16 @@ TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
 TR2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CAH  1
 PX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
 PX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
+KeyNum . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0002H  1
 u16. . . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
-DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
-DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
-C51 COMPILER V9.54   MAIN                                                                  02/13/2022 23:28:29 PAGE 5   
+C51 COMPILER V9.54   MAIN                                                                  02/14/2022 00:11:32 PAGE 7   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
 
 
+DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
+DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
 EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
 REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
 T2MOD. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C9H  1
@@ -224,11 +364,11 @@ PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     55    ----
-   CONSTANT SIZE    =      6    ----
+   CODE SIZE        =    223    ----
+   CONSTANT SIZE    =     27    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      1    ----
+   DATA SIZE        =      3    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
    EDATA SIZE       =   ----    ----

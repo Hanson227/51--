@@ -288,3 +288,9 @@ C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
 [2022-02-13 23:28:29]	[done]
 	build successfully !
 
+[2022-02-14 00:10:27]	Not found any source files !, please add some source files !
+  at unify_builder.Program.Main (System.String[] args) [0x015ad] in <67d11e1b30504dd6babd321425698ba1>:0 
+
+[2022-02-14 00:11:32]	[done]
+	build successfully !
+

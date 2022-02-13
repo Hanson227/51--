@@ -1,11 +1,11 @@
-C51 COMPILER V9.54   TIMER0                                                                02/13/2022 23:28:29 PAGE 1   
+C51 COMPILER V9.54   TIMER0                                                                02/14/2022 00:11:32 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE TIMER0
 OBJECT MODULE PLACED IN .\build\Debug\src\Timer0.o
 COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.exe .\SRC\TIMER0.C PRINT(.\build\Debug\src\Timer0.lst) OMF2 TABS(4) CODE NOCON
-                    -D SYMBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(d:\Keil5\C51\INC\Atmel;D:\Keil5\C51\INC;.\src) DEFINE(__UVISION_VERS
-                    -ION=526) OBJECT(.\build\Debug\src\Timer0.o)
+                    -D SYMBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(d:\Keil5\C51\INC\Atmel;D:\Keil5\C51\INC) DEFINE(__UVISION_VERSION=52
+                    -6) OBJECT(.\build\Debug\src\Timer0.o)
 
 line level    source
 
@@ -43,7 +43,7 @@ line level    source
   32              }
   33          }
   34          */
-C51 COMPILER V9.54   TIMER0                                                                02/13/2022 23:28:29 PAGE 2   
+C51 COMPILER V9.54   TIMER0                                                                02/14/2022 00:11:32 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -73,7 +73,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0016 22                RET     
              ; FUNCTION Timer0Init (END)
 
-C51 COMPILER V9.54   TIMER0                                                                02/13/2022 23:28:29 PAGE 3   
+C51 COMPILER V9.54   TIMER0                                                                02/14/2022 00:11:32 PAGE 3   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -136,7 +136,7 @@ SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
 T2EX . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
 OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
 RCAP2L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
-C51 COMPILER V9.54   TIMER0                                                                02/13/2022 23:28:29 PAGE 4   
+C51 COMPILER V9.54   TIMER0                                                                02/14/2022 00:11:32 PAGE 4   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -199,7 +199,7 @@ RXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
 TXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
 F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
 F1 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D1H  1
-C51 COMPILER V9.54   TIMER0                                                                02/13/2022 23:28:29 PAGE 5   
+C51 COMPILER V9.54   TIMER0                                                                02/14/2022 00:11:32 PAGE 5   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====

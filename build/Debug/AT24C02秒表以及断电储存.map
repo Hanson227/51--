@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.41.0                                                          02/13/2022  23:28:29  PAGE 1
+LX51 LINKER/LOCATER V4.66.41.0                                                          02/14/2022  00:11:32  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.41.0, INVOKED BY:
@@ -40,8 +40,8 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\BUILD\DEBUG\AT24C02秒表以及断电储存 (AT24C02
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   000291H   CODE
-I:000000H   I:000000H   I:00007FH   000012H   DATA
+C:000000H   C:000000H   C:00FFFFH   0003AFH   CODE
+I:000000H   I:000000H   I:00007FH   000014H   DATA
 I:000020H.0 I:000020H.0 I:00002FH.7 000000H.1 BIT
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 
@@ -55,42 +55,41 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 * * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
 000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
 000008H   000010H   000009H   BYTE   UNIT     DATA           _DATA_GROUP_
-000011H   000011H   000001H   BYTE   UNIT     DATA           ?DT?MAIN
-000012H.0 00001FH.7 00000EH.0 ---    ---      **GAP**
+000011H   000013H   000003H   BYTE   UNIT     DATA           ?DT?MAIN
+000014H.0 00001FH.7 00000CH.0 ---    ---      **GAP**
 000020H.0 000020H.0 000000H.1 BIT    UNIT     BIT            _BIT_GROUP_
 000020H.1 000020H   000000H.7 ---    ---      **GAP**
 000021H   000021H   000001H   BYTE   UNIT     IDATA          ?STACK
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
-000003H   000096H   000094H   BYTE   UNIT     CODE           ?C?LIB_CODE
-000097H   0000CDH   000037H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-0000CEH   000100H   000033H   BYTE   UNIT     CODE           ?PR?_LCD_POW?LCD1602
-000101H   000130H   000030H   BYTE   UNIT     CODE           ?PR?_AT24C02_READBYTE?AT24C02
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 2
+000003H   0000E1H   0000DFH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+0000E2H   000175H   000094H   BYTE   UNIT     CODE           ?C?LIB_CODE
+000176H   0001D6H   000061H   BYTE   UNIT     CODE           ?PR?KEY?KEY
+0001D7H   000209H   000033H   BYTE   UNIT     CODE           ?PR?_LCD_POW?LCD1602
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/14/2022  00:11:32  PAGE 2
 
 
-000131H   000159H   000029H   BYTE   UNIT     CODE           ?PR?_I2C_SENDBYTE?I2C
-00015AH   00017DH   000024H   BYTE   UNIT     CODE           ?PR?_AT24C02_WRITEBYTE?AT24C02
-00017EH   0001A0H   000023H   BYTE   UNIT     CODE           ?PR?_LCD_SHOWSTRING?LCD1602
-0001A1H   0001BEH   00001EH   BYTE   UNIT     CODE           ?PR?I2C_RECEIVEBYTE?I2C
-0001BFH   0001DCH   00001EH   BYTE   UNIT     CODE           ?PR?_LCD_WRITEDATA?LCD1602
-0001DDH   0001F9H   00001DH   BYTE   UNIT     CODE           ?PR?_DELAY?DELAY
-0001FAH   000216H   00001DH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWNUM?LCD1602
-000217H   00022CH   000016H   BYTE   UNIT     CODE           ?PR?_LCD_SETCURSOR?LCD1602
-00022DH   000240H   000014H   BYTE   UNIT     CODE           ?PR?LCD_INIT?LCD1602
-000241H   00024FH   00000FH   BYTE   UNIT     CODE           ?PR?LCD_DELAY?LCD1602
-000250H   00025BH   00000CH   BYTE   UNIT     CODE           ?PR?I2C_RECEIVEACK?I2C
-00025CH   000267H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-000268H   000271H   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_WRITECOMMAND?LCD1602
-000272H   00027AH   000009H   BYTE   UNIT     CODE           ?PR?I2C_START?I2C
-00027BH   000283H   000009H   BYTE   UNIT     CODE           ?PR?I2C_SENDACK?I2C
-000284H   00028AH   000007H   BYTE   UNIT     CODE           ?PR?I2C_STOP?I2C
-00028BH   000290H   000006H   BYTE   UNIT     CODE           ?CO?MAIN
+00020AH   000239H   000030H   BYTE   UNIT     CODE           ?PR?_AT24C02_READBYTE?AT24C02
+00023AH   000262H   000029H   BYTE   UNIT     CODE           ?PR?_I2C_SENDBYTE?I2C
+000263H   000286H   000024H   BYTE   UNIT     CODE           ?PR?_AT24C02_WRITEBYTE?AT24C02
+000287H   0002A9H   000023H   BYTE   UNIT     CODE           ?PR?_LCD_SHOWSTRING?LCD1602
+0002AAH   0002C7H   00001EH   BYTE   UNIT     CODE           ?PR?I2C_RECEIVEBYTE?I2C
+0002C8H   0002E5H   00001EH   BYTE   UNIT     CODE           ?PR?_LCD_WRITEDATA?LCD1602
+0002E6H   000302H   00001DH   BYTE   UNIT     CODE           ?PR?_DELAY?DELAY
+000303H   00031FH   00001DH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWNUM?LCD1602
+000320H   00033AH   00001BH   BYTE   UNIT     CODE           ?CO?MAIN
+00033BH   000350H   000016H   BYTE   UNIT     CODE           ?PR?_LCD_SETCURSOR?LCD1602
+000351H   000364H   000014H   BYTE   UNIT     CODE           ?PR?LCD_INIT?LCD1602
+000365H   000373H   00000FH   BYTE   UNIT     CODE           ?PR?LCD_DELAY?LCD1602
+000374H   00037FH   00000CH   BYTE   UNIT     CODE           ?PR?I2C_RECEIVEACK?I2C
+000380H   00038BH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00038CH   000395H   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_WRITECOMMAND?LCD1602
+000396H   00039EH   000009H   BYTE   UNIT     CODE           ?PR?I2C_START?I2C
+00039FH   0003A7H   000009H   BYTE   UNIT     CODE           ?PR?I2C_SENDACK?I2C
+0003A8H   0003AEH   000007H   BYTE   UNIT     CODE           ?PR?I2C_STOP?I2C
 
 * * * * * * * * *   R E M O V E D     S E G M E N T S   * * * * * * * *
-   *DEL*:           000061H   BYTE   UNIT     CODE           ?PR?KEY?KEY
-   *DEL*:           000001H   BYTE   UNIT     DATA           ?DT?KEY?KEY
    *DEL*:           00000AH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWCHAR?LCD1602
    *DEL*:           00003AH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWSIGNEDNUM?LCD1602
    *DEL*:           000007H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWSIGNEDNUM?LCD1602
@@ -113,12 +112,13 @@ FUNCTION/MODULE                  BIT_GROUP   DATA_GROUP
 
 MAIN/MAIN                       ----- -----  ----- -----
   +--> LCD_INIT/LCD1602
-  +--> ?CO?MAIN
-  +--> _LCD_SHOWSTRING/LCD1602
+  +--> _LCD_SHOWNUM/LCD1602
+  +--> KEY/KEY
   +--> _AT24C02_WRITEBYTE/AT24C02
   +--> _DELAY/DELAY
+  +--> ?CO?MAIN
+  +--> _LCD_SHOWSTRING/LCD1602
   +--> _AT24C02_READBYTE/AT24C02
-  +--> _LCD_SHOWNUM/LCD1602
 
 LCD_INIT/LCD1602                ----- -----  ----- -----
   +--> _LCD_WRITECOMMAND/LCD1602
@@ -128,20 +128,26 @@ _LCD_WRITECOMMAND/LCD1602       ----- -----  ----- -----
 
 LCD_DELAY/LCD1602               ----- -----  ----- -----
 
-?CO?MAIN                        ----- -----  ----- -----
-
-_LCD_SHOWSTRING/LCD1602         ----- -----  0008H 000AH
+_LCD_SHOWNUM/LCD1602            ----- -----  0008H 000CH
   +--> _LCD_SETCURSOR/LCD1602
+  +--> _LCD_POW/LCD1602
   +--> _LCD_WRITEDATA/LCD1602
 
 _LCD_SETCURSOR/LCD1602          ----- -----  ----- -----
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 3
-
-
   +--> _LCD_WRITECOMMAND/LCD1602
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/14/2022  00:11:32  PAGE 3
+
+
+
+_LCD_POW/LCD1602                ----- -----  000DH 0010H
 
 _LCD_WRITEDATA/LCD1602          ----- -----  ----- -----
   +--> LCD_DELAY/LCD1602
+
+KEY/KEY                         ----- -----  0008H 0008H
+  +--> _DELAY/DELAY
+
+_DELAY/DELAY                    ----- -----  0009H 000AH
 
 _AT24C02_WRITEBYTE/AT24C02      ----- -----  0008H 000AH
   +--> I2C_START/I2C
@@ -157,7 +163,11 @@ I2C_RECEIVEACK/I2C              ----- -----  ----- -----
 
 I2C_STOP/I2C                    ----- -----  ----- -----
 
-_DELAY/DELAY                    ----- -----  0008H 0009H
+?CO?MAIN                        ----- -----  ----- -----
+
+_LCD_SHOWSTRING/LCD1602         ----- -----  0008H 000AH
+  +--> _LCD_SETCURSOR/LCD1602
+  +--> _LCD_WRITEDATA/LCD1602
 
 _AT24C02_READBYTE/AT24C02       ----- -----  0008H 0009H
   +--> I2C_START/I2C
@@ -171,13 +181,6 @@ I2C_RECEIVEBYTE/I2C             ----- -----  ----- -----
 
 I2C_SENDACK/I2C                 20H.0 20H.0  ----- -----
 
-_LCD_SHOWNUM/LCD1602            ----- -----  0008H 000CH
-  +--> _LCD_SETCURSOR/LCD1602
-  +--> _LCD_POW/LCD1602
-  +--> _LCD_WRITEDATA/LCD1602
-
-_LCD_POW/LCD1602                ----- -----  000DH 0010H
-
 
 
 PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\AT24C02秒表以及断电储存 (AT24C02)
@@ -189,41 +192,42 @@ PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\AT24C02秒表以及断电储存 (AT24C02)
 *DEL*:00000000H   DATA     BYTE      ?_LCD_ShowHexNum?BYTE
       00000008H   DATA     BYTE      ?_LCD_ShowNum?BYTE
 *DEL*:00000000H   DATA     BYTE      ?_LCD_ShowSignedNum?BYTE
-      01000003H   CODE     ---       ?C?CLDOPTR
+      010000E2H   CODE     ---       ?C?CLDOPTR
       00000000H   NUMBER   ---       ?C?CODESEG
-      01000030H   CODE     ---       ?C?IMUL
-      01000042H   CODE     ---       ?C?UIDIV
+      0100010FH   CODE     ---       ?C?IMUL
+      01000121H   CODE     ---       ?C?UIDIV
       00000000H   NUMBER   ---       ?C?XDATASEG
-      01000097H   CODE     ---       ?C_START
+      01000003H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
       00000020H.0 BIT      BIT       ?I2C_SendAck?BIT
-      01000101H   CODE     ---       _AT24C02_ReadByte
-      0100015AH   CODE     ---       _AT24C02_WriteByte
-      010001DDH   CODE     ---       _Delay
-      01000131H   CODE     ---       _I2C_SendByte
-      010000DAH   CODE     ---       _LCD_Pow
-      01000217H   CODE     ---       _LCD_SetCursor
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 4
+      0100020AH   CODE     ---       _AT24C02_ReadByte
+      01000263H   CODE     ---       _AT24C02_WriteByte
+      010002E6H   CODE     ---       _Delay
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/14/2022  00:11:32  PAGE 4
 
 
+      0100023AH   CODE     ---       _I2C_SendByte
+      010001E3H   CODE     ---       _LCD_Pow
+      0100033BH   CODE     ---       _LCD_SetCursor
 *DEL*:00000000H   CODE     ---       _LCD_ShowBinNum
 *DEL*:00000000H   CODE     ---       _LCD_ShowChar
 *DEL*:00000000H   CODE     ---       _LCD_ShowHexNum
-      010001FAH   CODE     ---       _LCD_ShowNum
+      01000303H   CODE     ---       _LCD_ShowNum
 *DEL*:00000000H   CODE     ---       _LCD_ShowSignedNum
-      0100017EH   CODE     ---       _LCD_ShowString
-      01000268H   CODE     ---       _LCD_WriteCommand
-      010001D3H   CODE     ---       _LCD_WriteData
-      00000011H   DATA     BYTE      Date
-      01000250H   CODE     ---       I2C_ReceiveAck
-      010001A1H   CODE     ---       I2C_ReceiveByte
-      0100027BH   CODE     ---       I2C_SendAck
-      01000272H   CODE     ---       I2C_Start
-      01000284H   CODE     ---       I2C_Stop
-*DEL*:00000000H   CODE     ---       Key
-      01000247H   CODE     ---       LCD_Delay
-      0100022DH   CODE     ---       LCD_Init
-      01000097H   CODE     ---       main
+      01000287H   CODE     ---       _LCD_ShowString
+      0100038CH   CODE     ---       _LCD_WriteCommand
+      010002DCH   CODE     ---       _LCD_WriteData
+      01000374H   CODE     ---       I2C_ReceiveAck
+      010002AAH   CODE     ---       I2C_ReceiveByte
+      0100039FH   CODE     ---       I2C_SendAck
+      01000396H   CODE     ---       I2C_Start
+      010003A8H   CODE     ---       I2C_Stop
+      01000176H   CODE     ---       Key
+      00000013H   DATA     BYTE      KeyNum
+      0100036BH   CODE     ---       LCD_Delay
+      01000351H   CODE     ---       LCD_Init
+      01000003H   CODE     ---       main
+      00000011H   DATA     WORD      Num
 *DEL*:00000000H   CODE     ---       Timer0Init
 
 
@@ -233,127 +237,134 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\AT24C02秒表以及断电储存 (AT24C02)
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       AT24C02
-      01000101H   PUBLIC    CODE     ---       _AT24C02_ReadByte
-      0100015AH   PUBLIC    CODE     ---       _AT24C02_WriteByte
+      0100020AH   PUBLIC    CODE     ---       _AT24C02_ReadByte
+      01000263H   PUBLIC    CODE     ---       _AT24C02_WriteByte
 
-      0100015AH   BLOCK     CODE     ---       LVL=0
+      01000263H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000101H   BLOCK     CODE     ---       LVL=0
-      01000103H   BLOCK     CODE     NEAR LAB  LVL=1
+      0100020AH   BLOCK     CODE     ---       LVL=0
+      0100020CH   BLOCK     CODE     NEAR LAB  LVL=1
       00000009H   SYMBOL    DATA     VOID      Date
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       DELAY
-      010001DDH   PUBLIC    CODE     ---       _Delay
+      010002E6H   PUBLIC    CODE     ---       _Delay
 
-      010001DDH   BLOCK     CODE     ---       LVL=0
-      010001E6H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000008H   SYMBOL    DATA     VOID      i
-      00000009H   SYMBOL    DATA     VOID      j
+      010002E6H   BLOCK     CODE     ---       LVL=0
+      010002EFH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000009H   SYMBOL    DATA     VOID      i
+      0000000AH   SYMBOL    DATA     VOID      j
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       I2C
-      01000250H   PUBLIC    CODE     ---       I2C_ReceiveAck
+      01000374H   PUBLIC    CODE     ---       I2C_ReceiveAck
       00000020H.0 PUBLIC    BIT      BIT       ?I2C_SendAck?BIT
-      0100027BH   PUBLIC    CODE     ---       I2C_SendAck
-      010001A1H   PUBLIC    CODE     ---       I2C_ReceiveByte
-      01000131H   PUBLIC    CODE     ---       _I2C_SendByte
-      01000284H   PUBLIC    CODE     ---       I2C_Stop
-      01000272H   PUBLIC    CODE     ---       I2C_Start
+      0100039FH   PUBLIC    CODE     ---       I2C_SendAck
+      010002AAH   PUBLIC    CODE     ---       I2C_ReceiveByte
+      0100023AH   PUBLIC    CODE     ---       _I2C_SendByte
+      010003A8H   PUBLIC    CODE     ---       I2C_Stop
+      01000396H   PUBLIC    CODE     ---       I2C_Start
 
-      01000272H   BLOCK     CODE     ---       LVL=0
+      01000396H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000284H   BLOCK     CODE     ---       LVL=0
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/14/2022  00:11:32  PAGE 5
+
+
+      010003A8H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000131H   BLOCK     CODE     ---       LVL=0
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 5
-
-
-      01000133H   BLOCK     CODE     NEAR LAB  LVL=1
+      0100023AH   BLOCK     CODE     ---       LVL=0
+      0100023CH   BLOCK     CODE     NEAR LAB  LVL=1
       00000003H   SYMBOL    DATA     VOID      i
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010001A1H   BLOCK     CODE     ---       LVL=0
-      010001A1H   BLOCK     CODE     NEAR LAB  LVL=1
+      010002AAH   BLOCK     CODE     ---       LVL=0
+      010002AAH   BLOCK     CODE     NEAR LAB  LVL=1
       00000006H   SYMBOL    DATA     VOID      i
       00000007H   SYMBOL    DATA     VOID      Byte
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100027BH   BLOCK     CODE     ---       LVL=0
+      0100039FH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000250H   BLOCK     CODE     ---       LVL=0
-      01000250H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000374H   BLOCK     CODE     ---       LVL=0
+      01000374H   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     VOID      AckBit
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       KEY
+      01000176H   PUBLIC    CODE     ---       Key
+
+      01000176H   BLOCK     CODE     ---       LVL=0
+      01000176H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000008H   SYMBOL    DATA     VOID      KeyNumber
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       LCD1602
       00000008H   PUBLIC    DATA     BYTE      ?_LCD_ShowNum?BYTE
-      010001FAH   PUBLIC    CODE     ---       _LCD_ShowNum
-      010000DAH   PUBLIC    CODE     ---       _LCD_Pow
-      0100017EH   PUBLIC    CODE     ---       _LCD_ShowString
-      0100022DH   PUBLIC    CODE     ---       LCD_Init
-      01000217H   PUBLIC    CODE     ---       _LCD_SetCursor
-      010001D3H   PUBLIC    CODE     ---       _LCD_WriteData
-      01000268H   PUBLIC    CODE     ---       _LCD_WriteCommand
-      01000247H   PUBLIC    CODE     ---       LCD_Delay
+      01000303H   PUBLIC    CODE     ---       _LCD_ShowNum
+      010001E3H   PUBLIC    CODE     ---       _LCD_Pow
+      01000287H   PUBLIC    CODE     ---       _LCD_ShowString
+      01000351H   PUBLIC    CODE     ---       LCD_Init
+      0100033BH   PUBLIC    CODE     ---       _LCD_SetCursor
+      010002DCH   PUBLIC    CODE     ---       _LCD_WriteData
+      0100038CH   PUBLIC    CODE     ---       _LCD_WriteCommand
+      0100036BH   PUBLIC    CODE     ---       LCD_Delay
 
-      01000241H   BLOCK     CODE     ---       LVL=0
+      01000365H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000247H   BLOCK     CODE     ---       LVL=0
-      01000247H   BLOCK     CODE     NEAR LAB  LVL=1
+      0100036BH   BLOCK     CODE     ---       LVL=0
+      0100036BH   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     VOID      i
       00000006H   SYMBOL    DATA     VOID      j
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000268H   BLOCK     CODE     ---       LVL=0
+      0100038CH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010001BFH   BLOCK     CODE     ---       LVL=0
+      010002C8H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010001D3H   BLOCK     CODE     ---       LVL=0
+      010002DCH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000217H   BLOCK     CODE     ---       LVL=0
+      0100033BH   BLOCK     CODE     ---       LVL=0
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/14/2022  00:11:32  PAGE 6
+
+
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100022DH   BLOCK     CODE     ---       LVL=0
+      01000351H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100017EH   BLOCK     CODE     ---       LVL=0
-      01000184H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000287H   BLOCK     CODE     ---       LVL=0
+      0100028DH   BLOCK     CODE     NEAR LAB  LVL=1
       00000005H   SYMBOL    DATA     VOID      i
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 6
-
-
-      010000CEH   BLOCK     CODE     ---       LVL=0
+      010001D7H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010000DAH   BLOCK     CODE     ---       LVL=0
-      010000E2H   BLOCK     CODE     NEAR LAB  LVL=1
+      010001E3H   BLOCK     CODE     ---       LVL=0
+      010001EBH   BLOCK     CODE     NEAR LAB  LVL=1
       00000003H   SYMBOL    DATA     VOID      i
       00000006H   SYMBOL    DATA     VOID      Result
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010001FAH   BLOCK     CODE     ---       LVL=0
-      010001FEH   BLOCK     CODE     NEAR LAB  LVL=1
+      01000303H   BLOCK     CODE     ---       LVL=0
+      01000307H   BLOCK     CODE     NEAR LAB  LVL=1
       00000002H   SYMBOL    DATA     VOID      i
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
@@ -365,23 +376,24 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\AT24C02秒表以及断电储存 (AT24C02)
       ---         MODULE    ---      ---       TIMER0
 
       ---         MODULE    ---      ---       MAIN
-      00000011H   PUBLIC    DATA     BYTE      Date
-      01000097H   PUBLIC    CODE     ---       main
+      00000013H   PUBLIC    DATA     BYTE      KeyNum
+      00000011H   PUBLIC    DATA     WORD      Num
+      01000003H   PUBLIC    CODE     ---       main
 
-      01000097H   BLOCK     CODE     ---       LVL=0
+      01000003H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
       ---         MODULE    ---      ---       ?C?CLDOPTR
-      01000003H   PUBLIC    CODE     ---       ?C?CLDOPTR
+      010000E2H   PUBLIC    CODE     ---       ?C?CLDOPTR
 
       ---         MODULE    ---      ---       ?C?IMUL
-      01000030H   PUBLIC    CODE     ---       ?C?IMUL
+      0100010FH   PUBLIC    CODE     ---       ?C?IMUL
 
       ---         MODULE    ---      ---       ?C?UIDIV
-      01000042H   PUBLIC    CODE     ---       ?C?UIDIV
+      01000121H   PUBLIC    CODE     ---       ?C?UIDIV
 
 
 
@@ -390,5 +402,5 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\AT24C02秒表以及断电储存 (AT24C02)
     MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
    DEFINED:  .\BUILD\DEBUG\SRC\I2C.O (I2C)
 
-Program Size: data=19.1 xdata=0 const=0 code=657
+Program Size: data=21.1 xdata=0 const=0 code=943
 LX51 RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
