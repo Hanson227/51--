@@ -195,3 +195,96 @@ C51 COMPILATION COMPLETE.  0 WARNING(S),  9 ERROR(S)
 [2022-02-13 21:12:14]	[done]
 	build successfully !
 
+[2022-02-13 23:21:30]	link failed !, exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01a1e] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+LX51 LINKER/LOCATER V4.66.41.0 - SN: K1DZC-86WUCC
+COPYRIGHT ARM Germany GmbH 1995 - 2015
+@c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\build\Debug\AT24C02秒表以及断电储存.lnp 
+.\build\Debug\src\AT24C02.o,.\build\Debug\src\Delay.o,.\build\Debug\src\I2C.o,.\build\Debug\src\Key.o,.\build\Debug\src\LCD1602.o,.\build\Debug\src\Timer0.o,.\build\Debug\src\main.o TO .\build\Debug\AT24C02秒表以及断电储存
+PRINT(.\build\Debug\AT24C02秒表以及断电储存.map) REMOVEUNUSED
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  I2C_ReceivedByte
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I2C_ReceivedByte
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+    ADDRESS: 10000B8H
+Program Size: data=13.1 xdata=0 const=0 code=497
+LX51 RUN COMPLETE.  0 WARNING(S),  2 ERROR(S)
+
+
+[2022-02-13 23:22:33]	link failed !, exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x01a1e] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+LX51 LINKER/LOCATER V4.66.41.0 - SN: K1DZC-86WUCC
+COPYRIGHT ARM Germany GmbH 1995 - 2015
+@c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\build\Debug\AT24C02秒表以及断电储存.lnp 
+.\build\Debug\src\AT24C02.o,.\build\Debug\src\Delay.o,.\build\Debug\src\I2C.o,.\build\Debug\src\Key.o,.\build\Debug\src\LCD1602.o,.\build\Debug\src\Timer0.o,.\build\Debug\src\main.o TO .\build\Debug\AT24C02秒表以及断电储存
+PRINT(.\build\Debug\AT24C02秒表以及断电储存.map) REMOVEUNUSED
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  I2C_ReceiveAck
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I2C_ReceiveAck
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+    ADDRESS: 10000FFH
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I2C_ReceiveAck
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+    ADDRESS: 1000107H
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I2C_ReceiveAck
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+    ADDRESS: 100010FH
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I2C_ReceiveAck
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+    ADDRESS: 10000A2H
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I2C_ReceiveAck
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+    ADDRESS: 10000AAH
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  I2C_ReceiveAck
+    MODULE:  .\BUILD\DEBUG\SRC\AT24C02.O (AT24C02)
+    ADDRESS: 10000B5H
+Program Size: data=13.1 xdata=0 const=0 code=515
+LX51 RUN COMPLETE.  0 WARNING(S),  7 ERROR(S)
+
+
+[2022-02-13 23:23:05]	[done]
+	build successfully !
+
+[2022-02-13 23:24:07]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 18 OF .\SRC\MAIN.C: syntax error near 'while'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
+
+[2022-02-13 23:24:15]	[done]
+	build successfully !
+
+[2022-02-13 23:24:56]	[done]
+	build successfully !
+
+[2022-02-13 23:26:14]	[done]
+	build successfully !
+
+[2022-02-13 23:26:27]	[done]
+	build successfully !
+
+[2022-02-13 23:27:16]	[done]
+	build successfully !
+
+[2022-02-13 23:27:49]	[done]
+	build successfully !
+
+[2022-02-13 23:28:08]	[done]
+	build successfully !
+
+[2022-02-13 23:28:29]	[done]
+	build successfully !
+

@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   KEY                                                                   02/13/2022 21:12:14 PAGE 1   
+C51 COMPILER V9.54   KEY                                                                   02/13/2022 23:28:29 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE KEY
@@ -28,7 +28,7 @@ line level    source
   17   1          
   18   1          return KeyNumber;
   19   1      }
-C51 COMPILER V9.54   KEY                                                                   02/13/2022 21:12:14 PAGE 2   
+C51 COMPILER V9.54   KEY                                                                   02/13/2022 23:28:29 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -92,7 +92,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 005B 750004      R     MOV     KeyNumber,#04H
 005E         ?C0010:
                                            ; SOURCE LINE # 18
-C51 COMPILER V9.54   KEY                                                                   02/13/2022 21:12:14 PAGE 3   
+C51 COMPILER V9.54   KEY                                                                   02/13/2022 23:28:29 PAGE 3   
 
 005E AF00        R     MOV     R7,KeyNumber
                                            ; SOURCE LINE # 19
@@ -100,7 +100,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0060 22                RET     
              ; FUNCTION Key (END)
 
-C51 COMPILER V9.54   KEY                                                                   02/13/2022 21:12:14 PAGE 4   
+C51 COMPILER V9.54   KEY                                                                   02/13/2022 23:28:29 PAGE 4   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -163,7 +163,7 @@ SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
 T2EX . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
 OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
 RCAP2L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
-C51 COMPILER V9.54   KEY                                                                   02/13/2022 21:12:14 PAGE 5   
+C51 COMPILER V9.54   KEY                                                                   02/13/2022 23:28:29 PAGE 5   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -226,7 +226,7 @@ T2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
 RXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
 TXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
 _Delay . . . . . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
-C51 COMPILER V9.54   KEY                                                                   02/13/2022 21:12:14 PAGE 6   
+C51 COMPILER V9.54   KEY                                                                   02/13/2022 23:28:29 PAGE 6   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====

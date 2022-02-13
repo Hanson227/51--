@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   AT24C02                                                               02/13/2022 21:12:13 PAGE 1   
+C51 COMPILER V9.54   AT24C02                                                               02/13/2022 23:28:28 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE AT24C02
@@ -19,21 +19,34 @@ line level    source
    8          
    9          void AT24C02_WriteByte(u8 WordAddress,Date)
   10          {
-  11   1          u8 Ack;
-  12   1          I2C_Start();
-  13   1          I2C_SendByte(AT24C02_ADDRESS);
-  14   1          Ack=I2C_ReceivedAck();
-  15   1          if(Ack==0){P2=0x00;}
-  16   1      }
-*** WARNING C280 IN LINE 9 OF .\SRC\AT24C02.C: 'WordAddress': unreferenced local variable
-  17          
-  18          u8 AT24C02_ReadByte(u8 WordAddress)
-  19          {
-  20   1          u8 Date;
-  21   1          return Date;
-  22   1      }
-*** WARNING C280 IN LINE 18 OF .\SRC\AT24C02.C: 'WordAddress': unreferenced local variable
-C51 COMPILER V9.54   AT24C02                                                               02/13/2022 21:12:13 PAGE 2   
+  11   1          I2C_Start();
+  12   1          I2C_SendByte(AT24C02_ADDRESS);
+  13   1          I2C_ReceiveAck();
+*** WARNING C206 IN LINE 13 OF .\SRC\AT24C02.C: 'I2C_ReceiveAck': missing function-prototype
+  14   1          I2C_SendByte(WordAddress);
+  15   1          I2C_ReceiveAck();
+  16   1          I2C_SendByte(Date);
+  17   1          I2C_ReceiveAck();
+  18   1          I2C_Stop();
+  19   1      }
+  20          
+  21          u8 AT24C02_ReadByte(u8 WordAddress)
+  22          {
+  23   1          u8 Date;
+  24   1          I2C_Start();
+  25   1          I2C_SendByte(AT24C02_ADDRESS);
+  26   1          I2C_ReceiveAck();
+  27   1          I2C_SendByte(WordAddress);
+  28   1          I2C_ReceiveAck();
+  29   1          I2C_Start();
+  30   1          I2C_SendByte(AT24C02_ADDRESS|0x01);
+  31   1          I2C_ReceiveAck();
+  32   1          Date=I2C_ReceiveByte();
+  33   1          I2C_SendAck(1);
+  34   1          I2C_Stop();
+  35   1          return Date;
+  36   1      }
+C51 COMPILER V9.54   AT24C02                                                               02/13/2022 23:28:28 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -44,35 +57,68 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0002 8C00        R     MOV     Date,R4
 0004 8D00        R     MOV     Date+01H,R5
                                            ; SOURCE LINE # 10
-                                           ; SOURCE LINE # 12
+                                           ; SOURCE LINE # 11
 0006 120000      E     LCALL   I2C_Start
-                                           ; SOURCE LINE # 13
+                                           ; SOURCE LINE # 12
 0009 7FA0              MOV     R7,#0A0H
 000B 120000      E     LCALL   _I2C_SendByte
+                                           ; SOURCE LINE # 13
+000E 120000      E     LCALL   I2C_ReceiveAck
                                            ; SOURCE LINE # 14
-000E 120000      E     LCALL   I2C_ReceivedAck
-;---- Variable 'Ack' assigned to Register 'R7' ----
+0011 AF00        R     MOV     R7,WordAddress
+0013 120000      E     LCALL   _I2C_SendByte
                                            ; SOURCE LINE # 15
-0011 EF                MOV     A,R7
-0012 7002              JNZ     ?C0002
-0014 F5A0              MOV     P2,A
+0016 120000      E     LCALL   I2C_ReceiveAck
                                            ; SOURCE LINE # 16
-0016         ?C0002:
-0016 22                RET     
+0019 AF00        R     MOV     R7,Date+01H
+001B 120000      E     LCALL   _I2C_SendByte
+                                           ; SOURCE LINE # 17
+001E 120000      E     LCALL   I2C_ReceiveAck
+                                           ; SOURCE LINE # 18
+0021 020000      E     LJMP    I2C_Stop
              ; FUNCTION _AT24C02_WriteByte (END)
 
              ; FUNCTION _AT24C02_ReadByte (BEGIN)
-                                           ; SOURCE LINE # 18
-0000 8F00        R     MOV     WordAddress,R7
-                                           ; SOURCE LINE # 19
                                            ; SOURCE LINE # 21
-0002 AF00        R     MOV     R7,Date
+0000 8F00        R     MOV     WordAddress,R7
                                            ; SOURCE LINE # 22
-0004         ?C0003:
-0004 22                RET     
+                                           ; SOURCE LINE # 24
+0002 120000      E     LCALL   I2C_Start
+                                           ; SOURCE LINE # 25
+0005 7FA0              MOV     R7,#0A0H
+0007 120000      E     LCALL   _I2C_SendByte
+                                           ; SOURCE LINE # 26
+000A 120000      E     LCALL   I2C_ReceiveAck
+                                           ; SOURCE LINE # 27
+000D AF00        R     MOV     R7,WordAddress
+000F 120000      E     LCALL   _I2C_SendByte
+                                           ; SOURCE LINE # 28
+0012 120000      E     LCALL   I2C_ReceiveAck
+                                           ; SOURCE LINE # 29
+0015 120000      E     LCALL   I2C_Start
+                                           ; SOURCE LINE # 30
+0018 7FA1              MOV     R7,#0A1H
+001A 120000      E     LCALL   _I2C_SendByte
+                                           ; SOURCE LINE # 31
+001D 120000      E     LCALL   I2C_ReceiveAck
+                                           ; SOURCE LINE # 32
+0020 120000      E     LCALL   I2C_ReceiveByte
+0023 8F00        R     MOV     Date,R7
+                                           ; SOURCE LINE # 33
+0025 D200        E     SETB    ?I2C_SendAck?BIT
+0027 120000      E     LCALL   I2C_SendAck
+                                           ; SOURCE LINE # 34
+002A 120000      E     LCALL   I2C_Stop
+                                           ; SOURCE LINE # 35
+C51 COMPILER V9.54   AT24C02                                                               02/13/2022 23:28:28 PAGE 3   
+
+002D AF00        R     MOV     R7,Date
+                                           ; SOURCE LINE # 36
+002F         ?C0002:
+002F 22                RET     
              ; FUNCTION _AT24C02_ReadByte (END)
 
-C51 COMPILER V9.54   AT24C02                                                               02/13/2022 21:12:13 PAGE 3   
+C51 COMPILER V9.54   AT24C02                                                               02/13/2022 23:28:28 PAGE 4   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -135,7 +181,7 @@ TI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
 RCAP2H . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
 PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
 SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
-C51 COMPILER V9.54   AT24C02                                                               02/13/2022 21:12:13 PAGE 4   
+C51 COMPILER V9.54   AT24C02                                                               02/13/2022 23:28:28 PAGE 5   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -147,7 +193,6 @@ RCAP2L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
 _AT24C02_WriteByte . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
   WordAddress. . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
   Date . . . . . . . . . . . . . . . .  AUTO     DATA   INT      0001H  2
-  Ack. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
 C_T2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C9H  1
 WR . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
 u8 . . . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
@@ -159,11 +204,13 @@ PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
 SCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
 TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
 TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
+I2C_SendAck. . . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
 IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
 B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
 _I2C_SendByte. . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 CP_RL2 . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
+I2C_Stop . . . . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
 ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
 ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
@@ -197,14 +244,13 @@ TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
 TR2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CAH  1
 PX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
 PX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
-u16. . . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
-C51 COMPILER V9.54   AT24C02                                                               02/13/2022 21:12:13 PAGE 5   
+C51 COMPILER V9.54   AT24C02                                                               02/13/2022 23:28:28 PAGE 6   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
 
 
-I2C_ReceivedAck. . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
+u16. . . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
 DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
 DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
 EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
@@ -215,11 +261,13 @@ RXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
 TXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
 F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
 F1 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D1H  1
+I2C_ReceiveAck . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
+I2C_ReceiveByte. . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     28    ----
+   CODE SIZE        =     84    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
@@ -233,4 +281,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

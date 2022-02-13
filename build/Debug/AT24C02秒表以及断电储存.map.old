@@ -1,10 +1,10 @@
-LX51 LINKER/LOCATER V4.66.41.0                                                          02/13/2022  23:28:29  PAGE 1
+LX51 LINKER/LOCATER V4.66.41.0                                                          02/13/2022  23:28:07  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.41.0, INVOKED BY:
 D:\KEIL5\C51\BIN\LX51.EXE .\BUILD\DEBUG\SRC\AT24C02.O, .\BUILD\DEBUG\SRC\DELAY.O, .\BUILD\DEBUG\SRC\I2C.O, .\BUILD\DEBUG
 >> \SRC\KEY.O, .\BUILD\DEBUG\SRC\LCD1602.O, .\BUILD\DEBUG\SRC\TIMER0.O, .\BUILD\DEBUG\SRC\MAIN.O TO .\BUILD\DEBUG\AT24C0
->> 2√Î±Ì“‘º∞∂œµÁ¥¢¥Ê PRINT (.\build\Debug\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê.map) REMOVEUNUSED
+>> 2ÔøΩÔøΩÔøΩÔøΩ‘ºÔøΩÔøΩœµÁ¥¢ÔøΩÔøΩ PRINT (.\build\Debug\AT24C02ÔøΩÔøΩÔøΩÔøΩ‘ºÔøΩÔøΩœµÁ¥¢ÔøΩÔøΩ.map) REMOVEUNUSED
 
 
 CPU MODE:     8051 MODE
@@ -36,7 +36,7 @@ INPUT MODULES INCLUDED:
          COMMENT TYPE 1: A51 / ASM51 Assembler
 
 
-ACTIVE MEMORY CLASSES OF MODULE:  .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
+ACTIVE MEMORY CLASSES OF MODULE:  .\BUILD\DEBUG\AT24C02ÔøΩÔøΩÔøΩÔøΩ‘ºÔøΩÔøΩœµÁ¥¢ÔøΩÔøΩ (AT24C02)
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
@@ -46,7 +46,7 @@ I:000020H.0 I:000020H.0 I:00002FH.7 000000H.1 BIT
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 
 
-MEMORY MAP OF MODULE:  .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
+MEMORY MAP OF MODULE:  .\BUILD\DEBUG\AT24C02ÔøΩÔøΩÔøΩÔøΩ‘ºÔøΩÔøΩœµÁ¥¢ÔøΩÔøΩ (AT24C02)
 
 
 START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
@@ -67,7 +67,7 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 000097H   0000CDH   000037H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
 0000CEH   000100H   000033H   BYTE   UNIT     CODE           ?PR?_LCD_POW?LCD1602
 000101H   000130H   000030H   BYTE   UNIT     CODE           ?PR?_AT24C02_READBYTE?AT24C02
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 2
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:07  PAGE 2
 
 
 000131H   000159H   000029H   BYTE   UNIT     CODE           ?PR?_I2C_SENDBYTE?I2C
@@ -102,7 +102,7 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 
 
-OVERLAY MAP OF MODULE:   .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
+OVERLAY MAP OF MODULE:   .\BUILD\DEBUG\AT24C02ÔøΩÔøΩÔøΩÔøΩ‘ºÔøΩÔøΩœµÁ¥¢ÔøΩÔøΩ (AT24C02)
 
 
 FUNCTION/MODULE                  BIT_GROUP   DATA_GROUP 
@@ -135,7 +135,7 @@ _LCD_SHOWSTRING/LCD1602         ----- -----  0008H 000AH
   +--> _LCD_WRITEDATA/LCD1602
 
 _LCD_SETCURSOR/LCD1602          ----- -----  ----- -----
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 3
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:07  PAGE 3
 
 
   +--> _LCD_WRITECOMMAND/LCD1602
@@ -180,7 +180,7 @@ _LCD_POW/LCD1602                ----- -----  000DH 0010H
 
 
 
-PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
+PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\AT24C02ÔøΩÔøΩÔøΩÔøΩ‘ºÔøΩÔøΩœµÁ¥¢ÔøΩÔøΩ (AT24C02)
 
 
       VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
@@ -203,7 +203,7 @@ PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
       01000131H   CODE     ---       _I2C_SendByte
       010000DAH   CODE     ---       _LCD_Pow
       01000217H   CODE     ---       _LCD_SetCursor
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 4
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:07  PAGE 4
 
 
 *DEL*:00000000H   CODE     ---       _LCD_ShowBinNum
@@ -228,7 +228,7 @@ PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
 
 
 
-SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
+SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\AT24C02ÔøΩÔøΩÔøΩÔøΩ‘ºÔøΩÔøΩœµÁ¥¢ÔøΩÔøΩ (AT24C02)
 
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
@@ -271,7 +271,7 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
       ---         BLOCKEND  ---      ---       LVL=0
 
       01000131H   BLOCK     CODE     ---       LVL=0
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 5
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:07  PAGE 5
 
 
       01000133H   BLOCK     CODE     NEAR LAB  LVL=1
@@ -339,7 +339,7 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\AT24C02√Î±Ì“‘º∞∂œµÁ¥¢¥Ê (AT24C02)
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:29  PAGE 6
+LX51 LINKER/LOCATER V4.66.41.0                                                        02/13/2022  23:28:07  PAGE 6
 
 
       010000CEH   BLOCK     CODE     ---       LVL=0

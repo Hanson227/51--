@@ -90,7 +90,7 @@ void I2C_SendAck(bit AckBit)
  * 
  * @return Ackbit 返回，0为有应答，1为无应答
  */
-u8 I2C_ReceivedAck(void)
+u8 I2C_ReceiveAck(void)
 {
     u8 AckBit;
     I2C_SDA=1;//
