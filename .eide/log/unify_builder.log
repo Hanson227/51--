@@ -1,0 +1,197 @@
+[2022-02-13 20:58:35]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\AT24C02.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 6 OF .\SRC\I2C.h: syntax error near 'Byte', expected ')'
+*** ERROR C202 IN LINE 13 OF .\SRC\AT24C02.C: 'AT24C02_ADDRESS': undefined identifier
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)
+
+[2022-02-13 20:59:30]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\AT24C02.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C202 IN LINE 13 OF .\SRC\AT24C02.C: 'AT24C02_ADDRESS': undefined identifier
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
+
+[2022-02-13 20:59:44]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\I2C.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 14 OF .\SRC\I2C.C: syntax error near 'P2', expected '='
+*** ERROR C141 IN LINE 15 OF .\SRC\I2C.C: syntax error near 'P2', expected '='
+*** ERROR C202 IN LINE 26 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C202 IN LINE 27 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 28 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C202 IN LINE 29 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 38 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C202 IN LINE 39 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 40 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C141 IN LINE 51 OF .\SRC\I2C.C: syntax error near 'for'
+*** ERROR C231 IN LINE 51 OF .\SRC\I2C.C: 'i': redefinition
+*** ERROR C231 IN LINE 51 OF .\SRC\I2C.C: 'i': redefinition
+*** ERROR C202 IN LINE 54 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 55 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C141 IN LINE 57 OF .\SRC\I2C.C: syntax error near '}'
+*** ERROR C202 IN LINE 68 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C202 IN LINE 71 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 72 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C202 IN LINE 73 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 84 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C202 IN LINE 85 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 86 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 96 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C202 IN LINE 97 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+*** ERROR C202 IN LINE 98 OF .\SRC\I2C.C: 'I2C_SDA': undefined identifier
+*** ERROR C202 IN LINE 99 OF .\SRC\I2C.C: 'I2C_SCL': undefined identifier
+C51 COMPILATION COMPLETE.  0 WARNING(S),  26 ERROR(S)
+
+[2022-02-13 21:00:37]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\I2C.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 51 OF .\SRC\I2C.C: syntax error near 'for'
+*** ERROR C231 IN LINE 51 OF .\SRC\I2C.C: 'i': redefinition
+*** ERROR C231 IN LINE 51 OF .\SRC\I2C.C: 'i': redefinition
+*** ERROR C141 IN LINE 57 OF .\SRC\I2C.C: syntax error near '}'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  4 ERROR(S)
+
+[2022-02-13 21:00:55]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 4 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C141 IN LINE 5 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C132 IN LINE 7 OF .\SRC\MAIN.C: '_AT24C02_ReadByte': not in formal parameter list
+*** ERROR C141 IN LINE 7 OF .\SRC\MAIN.C: syntax error near 'int'
+*** ERROR C132 IN LINE 8 OF .\SRC\MAIN.C: 'main': not in formal parameter list
+*** ERROR C141 IN LINE 8 OF .\SRC\MAIN.C: syntax error near '{'
+*** ERROR C132 IN LINE 9 OF .\SRC\MAIN.C: 'LCD_Init': not in formal parameter list
+*** ERROR C141 IN LINE 10 OF .\SRC\MAIN.C: syntax error near '1'
+*** ERROR C132 IN LINE 10 OF .\SRC\MAIN.C: 'LCD_ShowString': not in formal parameter list
+*** ERROR C141 IN LINE 11 OF .\SRC\MAIN.C: syntax error near '0'
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'AT24C02_WriteByte': not in formal parameter list
+*** ERROR C141 IN LINE 12 OF .\SRC\MAIN.C: syntax error near 'while'
+*** ERROR C141 IN LINE 12 OF .\SRC\MAIN.C: syntax error near '1'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  13 ERROR(S)
+
+[2022-02-13 21:01:52]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\AT24C02.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 13 OF .\SRC\AT24C02.C: syntax error near ';'
+*** ERROR C141 IN LINE 13 OF .\SRC\AT24C02.C: syntax error near ')'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)
+
+[2022-02-13 21:02:10]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\AT24C02.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C129 IN LINE 5 OF .\SRC\AT24C02.C: missing ';' before 'typedef'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
+
+[2022-02-13 21:04:53]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 4 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C141 IN LINE 5 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C132 IN LINE 7 OF .\SRC\MAIN.C: '_AT24C02_ReadByte': not in formal parameter list
+*** ERROR C141 IN LINE 7 OF .\SRC\MAIN.C: syntax error near 'int'
+*** ERROR C132 IN LINE 8 OF .\SRC\MAIN.C: 'main': not in formal parameter list
+*** ERROR C141 IN LINE 8 OF .\SRC\MAIN.C: syntax error near '{'
+*** ERROR C132 IN LINE 9 OF .\SRC\MAIN.C: 'LCD_Init': not in formal parameter list
+*** ERROR C141 IN LINE 10 OF .\SRC\MAIN.C: syntax error near '1'
+*** ERROR C132 IN LINE 10 OF .\SRC\MAIN.C: 'LCD_ShowString': not in formal parameter list
+*** ERROR C141 IN LINE 11 OF .\SRC\MAIN.C: syntax error near '0'
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'AT24C02_WriteByte': not in formal parameter list
+*** ERROR C141 IN LINE 12 OF .\SRC\MAIN.C: syntax error near 'while'
+*** ERROR C141 IN LINE 12 OF .\SRC\MAIN.C: syntax error near '1'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  13 ERROR(S)
+
+[2022-02-13 21:04:58]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 4 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C141 IN LINE 5 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C132 IN LINE 7 OF .\SRC\MAIN.C: '_AT24C02_ReadByte': not in formal parameter list
+*** ERROR C141 IN LINE 7 OF .\SRC\MAIN.C: syntax error near 'int'
+*** ERROR C132 IN LINE 8 OF .\SRC\MAIN.C: 'main': not in formal parameter list
+*** ERROR C141 IN LINE 8 OF .\SRC\MAIN.C: syntax error near '{'
+*** ERROR C132 IN LINE 9 OF .\SRC\MAIN.C: 'LCD_Init': not in formal parameter list
+*** ERROR C141 IN LINE 10 OF .\SRC\MAIN.C: syntax error near '1'
+*** ERROR C132 IN LINE 10 OF .\SRC\MAIN.C: 'LCD_ShowString': not in formal parameter list
+*** ERROR C141 IN LINE 11 OF .\SRC\MAIN.C: syntax error near '0'
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'AT24C02_WriteByte': not in formal parameter list
+*** ERROR C141 IN LINE 12 OF .\SRC\MAIN.C: syntax error near 'while'
+*** ERROR C141 IN LINE 12 OF .\SRC\MAIN.C: syntax error near '1'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  13 ERROR(S)
+
+[2022-02-13 21:05:59]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 4 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C141 IN LINE 5 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C208 IN LINE 11 OF .\SRC\MAIN.C: '_AT24C02_WriteByte': too many actual parameters
+C51 COMPILATION COMPLETE.  0 WARNING(S),  3 ERROR(S)
+
+[2022-02-13 21:07:00]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 4 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C141 IN LINE 5 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C208 IN LINE 11 OF .\SRC\MAIN.C: '_AT24C02_WriteByte': too many actual parameters
+C51 COMPILATION COMPLETE.  0 WARNING(S),  3 ERROR(S)
+
+[2022-02-13 21:07:22]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 4 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C141 IN LINE 5 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C208 IN LINE 11 OF .\SRC\MAIN.C: '_AT24C02_WriteByte': too many actual parameters
+C51 COMPILATION COMPLETE.  0 WARNING(S),  3 ERROR(S)
+
+[2022-02-13 21:09:06]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 4 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C141 IN LINE 5 OF .\SRC\AT24C02.h: syntax error near 'WordAddress', expected ')'
+*** ERROR C208 IN LINE 11 OF .\SRC\MAIN.C: '_AT24C02_WriteByte': too many actual parameters
+C51 COMPILATION COMPLETE.  0 WARNING(S),  3 ERROR(S)
+
+[2022-02-13 21:10:32]	compilation failed at : "c:\Users\Hanson\Desktop\Keilproject\AT24C02秒表以及断电储存\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C132 IN LINE 8 OF .\SRC\MAIN.C: 'main': not in formal parameter list
+*** ERROR C141 IN LINE 8 OF .\SRC\MAIN.C: syntax error near '{'
+*** ERROR C132 IN LINE 9 OF .\SRC\MAIN.C: 'LCD_Init': not in formal parameter list
+*** ERROR C141 IN LINE 10 OF .\SRC\MAIN.C: syntax error near '1'
+*** ERROR C132 IN LINE 10 OF .\SRC\MAIN.C: 'LCD_ShowString': not in formal parameter list
+*** ERROR C141 IN LINE 11 OF .\SRC\MAIN.C: syntax error near '0'
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'AT24C02_WriteByte': not in formal parameter list
+*** ERROR C141 IN LINE 12 OF .\SRC\MAIN.C: syntax error near 'while'
+*** ERROR C141 IN LINE 12 OF .\SRC\MAIN.C: syntax error near '1'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  9 ERROR(S)
+
+[2022-02-13 21:12:14]	[done]
+	build successfully !
+

@@ -11,8 +11,8 @@
 
 #include <REGX52.H>
 
-sbit I2C_SCL P2^1;
-sbit I2C_SDA P2^0;
+sbit I2C_SCL=P2^1;
+sbit I2C_SDA=P2^0;
 
 typedef unsigned char u8;
 typedef unsigned int u16;
@@ -47,8 +47,8 @@ void I2C_Stop(void)
  */
 void I2C_SendByte(u8 Byte)
 {
-    u8 i=0
-    for (; i < 8; i++)
+    u8 i;
+    for (i=0; i < 8; i++)
     {
         I2C_SDA=Byte&(0x80>>i);
         I2C_SCL=1;
@@ -75,13 +75,27 @@ u8 I2C_ReceiveByte(void)
     return Byte;
 }
 /**
- * @brief 发送应答
+ * @brief 由主机发送应答到从机，表示发出数据
  * 
- * @param AckBit 0或者1，bit为51特有类型类似于bool
+ * @param AckBit 0或者1，bit为51特有类型类似于bool，0为有应答
  */
 void I2C_SendAck(bit AckBit)
 {
     I2C_SDA=AckBit;
     I2C_SCL=1;
     I2C_SCL=0;
+}
+/**
+ * @brief 由从机发送应答到主机，表示收到数据
+ * 
+ * @return Ackbit 返回，0为有应答，1为无应答
+ */
+u8 I2C_ReceivedAck(void)
+{
+    u8 AckBit;
+    I2C_SDA=1;//
+    I2C_SCL=1;
+    AckBit=I2C_SDA;
+    I2C_SCL=0;
+    return AckBit;
 }

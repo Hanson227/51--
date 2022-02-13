@@ -1,0 +1,3 @@
+
+.\build\Debug\src\AT24C02.o,.\build\Debug\src\Delay.o,.\build\Debug\src\I2C.o,.\build\Debug\src\Key.o,.\build\Debug\src\LCD1602.o,.\build\Debug\src\Timer0.o,.\build\Debug\src\main.o TO .\build\Debug\AT24C02秒表以及断电储存
+PRINT(.\build\Debug\AT24C02秒表以及断电储存.map) REMOVEUNUSED

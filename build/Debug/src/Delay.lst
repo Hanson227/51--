@@ -1,0 +1,101 @@
+C51 COMPILER V9.54   DELAY                                                                 02/13/2022 21:12:14 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\build\Debug\src\Delay.o
+COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.exe .\SRC\DELAY.C PRINT(.\build\Debug\src\Delay.lst) OMF2 TABS(4) CODE NOCOND 
+                    -SYMBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(d:\Keil5\C51\INC\Atmel;D:\Keil5\C51\INC;.\src) DEFINE(__UVISION_VERSIO
+                    -N=526) OBJECT(.\build\Debug\src\Delay.o)
+
+line level    source
+
+   1          /**
+   2           * @brief 实现延时功能
+   3           * 
+   4           * @param 延时的ms
+   5           */
+   6          void Delay( unsigned int a)     
+   7          {
+   8   1          while(a>0)
+   9   1          {unsigned char i, j;
+  10   2      
+  11   2              i = 2;
+  12   2              j = 239;
+  13   2              do
+  14   2              {
+  15   3                  while (--j);
+  16   3              } while (--i);
+  17   2              a--;
+  18   2          }
+  19   1      }
+C51 COMPILER V9.54   DELAY                                                                 02/13/2022 21:12:14 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION _Delay (BEGIN)
+                                           ; SOURCE LINE # 6
+;---- Variable 'a' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 7
+0000         ?C0001:
+                                           ; SOURCE LINE # 8
+0000 D3                SETB    C
+0001 EF                MOV     A,R7
+0002 9400              SUBB    A,#00H
+0004 EE                MOV     A,R6
+0005 9400              SUBB    A,#00H
+0007 4013              JC      ?C0008
+                                           ; SOURCE LINE # 9
+                                           ; SOURCE LINE # 11
+0009 750002      R     MOV     i,#02H
+                                           ; SOURCE LINE # 12
+000C 7500EF      R     MOV     j,#0EFH
+                                           ; SOURCE LINE # 14
+000F         ?C0006:
+                                           ; SOURCE LINE # 15
+000F D500FD            DJNZ    j,?C0006
+0012         ?C0007:
+                                           ; SOURCE LINE # 16
+0012         ?C0003:
+0012 D500FA            DJNZ    i,?C0006
+                                           ; SOURCE LINE # 17
+0015 EF                MOV     A,R7
+0016 1F                DEC     R7
+0017 70E7              JNZ     ?C0001
+0019 1E                DEC     R6
+001A         ?C0009:
+                                           ; SOURCE LINE # 18
+001A 80E4              SJMP    ?C0001
+                                           ; SOURCE LINE # 19
+001C         ?C0008:
+001C 22                RET     
+             ; FUNCTION _Delay (END)
+
+C51 COMPILER V9.54   DELAY                                                                 02/13/2022 21:12:14 PAGE 3   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+_Delay . . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  a. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_INT    0006H  2
+  i. . . . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
+  j. . . . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0001H  1
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     29    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
