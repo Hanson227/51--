@@ -1,0 +1,3 @@
+
+.\build\Debug\DS1302.o,.\build\Debug\Delay.o,.\build\Debug\Key.o,.\build\Debug\LCD1602.o,.\build\Debug\Timer0.o,.\build\Debug\main.o TO .\build\Debug\可调时钟
+PRINT(.\build\Debug\可调时钟.map) REMOVEUNUSED
