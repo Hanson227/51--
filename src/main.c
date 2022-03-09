@@ -3,11 +3,11 @@
 #include "LCD1602.h"
 #include "UART.h"
 #include "Buzzer.h"
+#include "Delay.h"
 
-typedef unsigned int u16;
-typedef unsigned char u8;
 
-u16  Temp1,Temp2;           //温度
+
+unsigned int  Temp1,Temp2;           //温度
 float objTemp,envTemp;         //物体温度和环境温度
 
 int main()

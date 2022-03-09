@@ -1,0 +1,139 @@
+[2022-03-09 21:23:35]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C132 IN LINE 6 OF .\SRC\mlx90614.h: 'stop_bit': not in formal parameter list
+*** ERROR C141 IN LINE 6 OF .\SRC\mlx90614.h: syntax error near 'void'
+*** ERROR C132 IN LINE 7 OF .\SRC\mlx90614.h: '_tx_byte': not in formal parameter list
+*** ERROR C141 IN LINE 7 OF .\SRC\mlx90614.h: syntax error near 'void'
+*** ERROR C132 IN LINE 8 OF .\SRC\mlx90614.h: 'send_bit': not in formal parameter list
+*** ERROR C141 IN LINE 8 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 9 OF .\SRC\mlx90614.h: 'rx_byte': not in formal parameter list
+*** ERROR C141 IN LINE 9 OF .\SRC\mlx90614.h: syntax error near 'void'
+*** ERROR C132 IN LINE 10 OF .\SRC\mlx90614.h: 'receive_bit': not in formal parameter list
+*** ERROR C141 IN LINE 10 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 11 OF .\SRC\mlx90614.h: 'ReadObjectTemp': not in formal parameter list
+*** ERROR C141 IN LINE 11 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 5 OF .\SRC\LCD1602.h: 'ReadEnvironTemp': not in formal parameter list
+*** ERROR C141 IN LINE 5 OF .\SRC\LCD1602.h: syntax error near 'void'
+*** ERROR C132 IN LINE 5 OF .\SRC\LCD1602.h: 'LCD_Init': not in formal parameter list
+*** ERROR C132 IN LINE 6 OF .\SRC\LCD1602.h: '_LCD_ShowChar': not in formal parameter list
+*** ERROR C132 IN LINE 7 OF .\SRC\LCD1602.h: '_LCD_ShowString': not in formal parameter list
+*** ERROR C132 IN LINE 8 OF .\SRC\LCD1602.h: '_LCD_ShowNum': not in formal parameter list
+*** ERROR C132 IN LINE 9 OF .\SRC\LCD1602.h: '_LCD_ShowSignedNum': not in formal parameter list
+*** ERROR C132 IN LINE 10 OF .\SRC\LCD1602.h: '_LCD_ShowHexNum': not in formal parameter list
+*** ERROR C132 IN LINE 11 OF .\SRC\LCD1602.h: '_LCD_ShowBinNum': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\UART.h: 'UART_Init': not in formal parameter list
+*** ERROR C132 IN LINE 5 OF .\SRC\UART.h: '_UART_SendByte': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\Buzzer.h: '_Buzzer_Time': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\Delay.h: '_Delay': not in formal parameter list
+*** ERROR C127 IN LINE 8 OF .\SRC\MAIN.C: 'u16': invalid storage class
+*** ERROR C127 IN LINE 9 OF .\SRC\MAIN.C: 'u8': invalid storage class
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'u16': not in formal parameter list
+*** ERROR C141 IN LINE 11 OF .\SRC\MAIN.C: syntax error near 'Temp1'
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'Temp1': not in formal parameter list
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'Temp2': not in formal parameter list
+*** ERROR C132 IN LINE 12 OF .\SRC\MAIN.C: 'objTemp': not in formal parameter list
+*** ERROR C132 IN LINE 12 OF .\SRC\MAIN.C: 'envTemp': not in formal parameter list
+*** ERROR C132 IN LINE 15 OF .\SRC\MAIN.C: 'main': not in formal parameter list
+*** ERROR C141 IN LINE 15 OF .\SRC\MAIN.C: syntax error near '{'
+*** ERROR C244 IN LINE 16 OF .\SRC\MAIN.C: 'Temp1': can't initialize, bad type or class
+C51 COMPILATION COMPLETE.  0 WARNING(S),  36 ERROR(S)
+
+[2022-03-09 21:24:22]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C132 IN LINE 6 OF .\SRC\mlx90614.h: 'stop_bit': not in formal parameter list
+*** ERROR C141 IN LINE 6 OF .\SRC\mlx90614.h: syntax error near 'void'
+*** ERROR C132 IN LINE 7 OF .\SRC\mlx90614.h: '_tx_byte': not in formal parameter list
+*** ERROR C141 IN LINE 7 OF .\SRC\mlx90614.h: syntax error near 'void'
+*** ERROR C132 IN LINE 8 OF .\SRC\mlx90614.h: 'send_bit': not in formal parameter list
+*** ERROR C141 IN LINE 8 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 9 OF .\SRC\mlx90614.h: 'rx_byte': not in formal parameter list
+*** ERROR C141 IN LINE 9 OF .\SRC\mlx90614.h: syntax error near 'void'
+*** ERROR C132 IN LINE 10 OF .\SRC\mlx90614.h: 'receive_bit': not in formal parameter list
+*** ERROR C141 IN LINE 10 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 11 OF .\SRC\mlx90614.h: 'ReadObjectTemp': not in formal parameter list
+*** ERROR C141 IN LINE 11 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 5 OF .\SRC\LCD1602.h: 'ReadEnvironTemp': not in formal parameter list
+*** ERROR C141 IN LINE 5 OF .\SRC\LCD1602.h: syntax error near 'void'
+*** ERROR C132 IN LINE 5 OF .\SRC\LCD1602.h: 'LCD_Init': not in formal parameter list
+*** ERROR C132 IN LINE 6 OF .\SRC\LCD1602.h: '_LCD_ShowChar': not in formal parameter list
+*** ERROR C132 IN LINE 7 OF .\SRC\LCD1602.h: '_LCD_ShowString': not in formal parameter list
+*** ERROR C132 IN LINE 8 OF .\SRC\LCD1602.h: '_LCD_ShowNum': not in formal parameter list
+*** ERROR C132 IN LINE 9 OF .\SRC\LCD1602.h: '_LCD_ShowSignedNum': not in formal parameter list
+*** ERROR C132 IN LINE 10 OF .\SRC\LCD1602.h: '_LCD_ShowHexNum': not in formal parameter list
+*** ERROR C132 IN LINE 11 OF .\SRC\LCD1602.h: '_LCD_ShowBinNum': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\UART.h: 'UART_Init': not in formal parameter list
+*** ERROR C132 IN LINE 5 OF .\SRC\UART.h: '_UART_SendByte': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\Buzzer.h: '_Buzzer_Time': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\Delay.h: '_Delay': not in formal parameter list
+*** ERROR C132 IN LINE 10 OF .\SRC\MAIN.C: 'Temp1': not in formal parameter list
+*** ERROR C132 IN LINE 10 OF .\SRC\MAIN.C: 'Temp2': not in formal parameter list
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'objTemp': not in formal parameter list
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'envTemp': not in formal parameter list
+*** ERROR C132 IN LINE 14 OF .\SRC\MAIN.C: 'main': not in formal parameter list
+*** ERROR C141 IN LINE 14 OF .\SRC\MAIN.C: syntax error near '{'
+*** ERROR C244 IN LINE 15 OF .\SRC\MAIN.C: 'Temp1': can't initialize, bad type or class
+C51 COMPILATION COMPLETE.  0 WARNING(S),  32 ERROR(S)
+
+[2022-03-09 21:29:01]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C132 IN LINE 6 OF .\SRC\mlx90614.h: 'stop_bit': not in formal parameter list
+*** ERROR C141 IN LINE 6 OF .\SRC\mlx90614.h: syntax error near 'tx_byte'
+*** ERROR C132 IN LINE 7 OF .\SRC\mlx90614.h: '_tx_byte': not in formal parameter list
+*** ERROR C141 IN LINE 7 OF .\SRC\mlx90614.h: syntax error near 'send_bit'
+*** ERROR C132 IN LINE 8 OF .\SRC\mlx90614.h: 'send_bit': not in formal parameter list
+*** ERROR C141 IN LINE 8 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 9 OF .\SRC\mlx90614.h: 'rx_byte': not in formal parameter list
+*** ERROR C141 IN LINE 9 OF .\SRC\mlx90614.h: syntax error near 'void'
+*** ERROR C132 IN LINE 10 OF .\SRC\mlx90614.h: 'receive_bit': not in formal parameter list
+*** ERROR C141 IN LINE 10 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 11 OF .\SRC\mlx90614.h: 'ReadObjectTemp': not in formal parameter list
+*** ERROR C141 IN LINE 11 OF .\SRC\mlx90614.h: syntax error near 'unsigned'
+*** ERROR C132 IN LINE 5 OF .\SRC\LCD1602.h: 'ReadEnvironTemp': not in formal parameter list
+*** ERROR C141 IN LINE 5 OF .\SRC\LCD1602.h: syntax error near 'void'
+*** ERROR C132 IN LINE 5 OF .\SRC\LCD1602.h: 'LCD_Init': not in formal parameter list
+*** ERROR C132 IN LINE 6 OF .\SRC\LCD1602.h: '_LCD_ShowChar': not in formal parameter list
+*** ERROR C132 IN LINE 7 OF .\SRC\LCD1602.h: '_LCD_ShowString': not in formal parameter list
+*** ERROR C132 IN LINE 8 OF .\SRC\LCD1602.h: '_LCD_ShowNum': not in formal parameter list
+*** ERROR C132 IN LINE 9 OF .\SRC\LCD1602.h: '_LCD_ShowSignedNum': not in formal parameter list
+*** ERROR C132 IN LINE 10 OF .\SRC\LCD1602.h: '_LCD_ShowHexNum': not in formal parameter list
+*** ERROR C132 IN LINE 11 OF .\SRC\LCD1602.h: '_LCD_ShowBinNum': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\UART.h: 'UART_Init': not in formal parameter list
+*** ERROR C132 IN LINE 5 OF .\SRC\UART.h: '_UART_SendByte': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\Buzzer.h: '_Buzzer_Time': not in formal parameter list
+*** ERROR C132 IN LINE 4 OF .\SRC\Delay.h: '_Delay': not in formal parameter list
+*** ERROR C132 IN LINE 10 OF .\SRC\MAIN.C: 'Temp1': not in formal parameter list
+*** ERROR C132 IN LINE 10 OF .\SRC\MAIN.C: 'Temp2': not in formal parameter list
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'objTemp': not in formal parameter list
+*** ERROR C132 IN LINE 11 OF .\SRC\MAIN.C: 'envTemp': not in formal parameter list
+*** ERROR C132 IN LINE 14 OF .\SRC\MAIN.C: 'main': not in formal parameter list
+*** ERROR C141 IN LINE 14 OF .\SRC\MAIN.C: syntax error near '{'
+*** ERROR C244 IN LINE 15 OF .\SRC\MAIN.C: 'Temp1': can't initialize, bad type or class
+C51 COMPILATION COMPLETE.  0 WARNING(S),  32 ERROR(S)
+
+[2022-03-09 21:51:27]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\mlx90614.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** WARNING C206 IN LINE 19 OF .\SRC\MLX90614.C: '_nop_': missing function-prototype
+*** ERROR C264 IN LINE 19 OF .\SRC\MLX90614.C: intrinsic '_nop_': declaration/activation error
+C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)
+
+[2022-03-09 21:53:20]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\mlx90614.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** WARNING C206 IN LINE 19 OF .\SRC\MLX90614.C: '_nop_': missing function-prototype
+*** ERROR C264 IN LINE 19 OF .\SRC\MLX90614.C: intrinsic '_nop_': declaration/activation error
+C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)
+

@@ -1,4 +1,5 @@
 #include <REGX52.H>
+#include "INTRINS.H"
 
 sbit SCL=P2^1;
 sbit SDA=P2^0;
@@ -58,7 +59,9 @@ void tx_byte(unsigned char dat_byte)
         {
                 stop_bit();
                 if(n!=0)
-                {n--;}
+                {
+                   n--;   
+                }
                 else
                         return;
         }
