@@ -4,7 +4,7 @@ sbit SCL=P2^1;
 sbit SDA=P2^0;
 
 
-#define Nack_counter 10
+#define Nack_counter 1
 
 //************数据定义****************
 
