@@ -75,9 +75,13 @@ void tx_byte(unsigned char dat_byte)
 void send_bit(void)
 {
         if(bit_out==0)
+        {
                 SDA=0;
+        }      
         else
-                SDA=1;
+        {
+                SDA=1;  
+        }        
         _nop_();
         SCL=1;
         _nop_();_nop_();_nop_();_nop_();
@@ -101,6 +105,7 @@ unsigned char rx_byte(void)
         send_bit();
         return dat;
 }
+
 //----------接收一个位----------
 void receive_bit(void)
 {
@@ -115,7 +120,6 @@ void receive_bit(void)
         _nop_();_nop_();_nop_();_nop_();
 }
 
-//------------------------------
 unsigned int ReadObjectTemp(void)
 {
         start_bit();

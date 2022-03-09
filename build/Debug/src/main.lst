@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  03/09/2022 21:56:32 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  03/09/2022 22:26:52 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -30,11 +30,9 @@ line level    source
   19   1          envTemp=(float)(Temp2)*0.02-273.15;
   20   1          LCD_ShowNum(1,1,objTemp,5);
   21   1          LCD_ShowNum(2,1,envTemp,5);
-  22   1      
-  23   1      
-  24   1      }
-*** WARNING C290 IN LINE 24 OF .\SRC\MAIN.C: missing return value
-C51 COMPILER V9.54   MAIN                                                                  03/09/2022 21:56:32 PAGE 2   
+  22   1      }
+*** WARNING C290 IN LINE 22 OF .\SRC\MAIN.C: missing return value
+C51 COMPILER V9.54   MAIN                                                                  03/09/2022 22:26:52 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -98,7 +96,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0067 AA06              MOV     R2,AR6
 0069 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
 006C 7D01              MOV     R5,#01H
-C51 COMPILER V9.54   MAIN                                                                  03/09/2022 21:56:32 PAGE 3   
+C51 COMPILER V9.54   MAIN                                                                  03/09/2022 22:26:52 PAGE 3   
 
 006E 7F01              MOV     R7,#01H
 0070 120000      E     LCALL   _LCD_ShowNum
@@ -116,7 +114,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0089 020000      E     LJMP    _LCD_ShowNum
              ; FUNCTION main (END)
 
-C51 COMPILER V9.54   MAIN                                                                  03/09/2022 21:56:32 PAGE 4   
+C51 COMPILER V9.54   MAIN                                                                  03/09/2022 22:26:52 PAGE 4   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -179,7 +177,7 @@ PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
 SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
 T2EX . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
 OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
-C51 COMPILER V9.54   MAIN                                                                  03/09/2022 21:56:32 PAGE 5   
+C51 COMPILER V9.54   MAIN                                                                  03/09/2022 22:26:52 PAGE 5   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -242,7 +240,7 @@ envTemp. . . . . . . . . . . . . . . .  PUBLIC   DATA   FLOAT    0008H  4
 EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
 REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
 T2MOD. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C9H  1
-C51 COMPILER V9.54   MAIN                                                                  03/09/2022 21:56:32 PAGE 6   
+C51 COMPILER V9.54   MAIN                                                                  03/09/2022 22:26:52 PAGE 6   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
