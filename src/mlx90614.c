@@ -1,5 +1,5 @@
 #include <REGX52.H>
-#include "INTRINS.H"
+#include <intrins.h>
 
 sbit SCL=P2^1;
 sbit SDA=P2^0;

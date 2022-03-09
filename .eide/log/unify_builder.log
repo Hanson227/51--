@@ -137,3 +137,33 @@ COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights res
 *** ERROR C264 IN LINE 19 OF .\SRC\MLX90614.C: intrinsic '_nop_': declaration/activation error
 C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)
 
+[2022-03-09 21:55:00]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\mlx90614.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C207 IN LINE 20 OF .\SRC\MLX90614.C: '__nop_': declared with 'void' parameter list
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
+
+[2022-03-09 21:56:20]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\mlx90614.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C207 IN LINE 20 OF .\SRC\MLX90614.C: '__nop_': declared with 'void' parameter list
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
+
+[2022-03-09 21:56:32]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\mlx90614.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** WARNING C206 IN LINE 54 OF .\SRC\MLX90614.C: 'send_bit': missing function-prototype
+*** WARNING C206 IN LINE 57 OF .\SRC\MLX90614.C: 'receive_bit': missing function-prototype
+*** WARNING C265 IN LINE 71 OF .\SRC\MLX90614.C: '_tx_byte': recursive call to non-reentrant function
+*** ERROR C231 IN LINE 76 OF .\SRC\MLX90614.C: 'send_bit': redefinition
+*** ERROR C231 IN LINE 88 OF .\SRC\MLX90614.C: 'send_bit': redefinition
+*** ERROR C231 IN LINE 106 OF .\SRC\MLX90614.C: 'receive_bit': redefinition
+*** ERROR C231 IN LINE 116 OF .\SRC\MLX90614.C: 'receive_bit': redefinition
+C51 COMPILATION COMPLETE.  3 WARNING(S),  4 ERROR(S)
+
