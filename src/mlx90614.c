@@ -1,4 +1,7 @@
-#include <intrin.h>
+#include <REGX52.H>
+
+sbit SCL=P2^1;
+sbit SDA=P2^0;
 
 
 #define Nack_counter 10
