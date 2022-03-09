@@ -1,0 +1,3 @@
+
+.\build\Debug\src\Buzzer.o,.\build\Debug\src\Delay.o,.\build\Debug\src\LCD1602.o,.\build\Debug\src\UART.o,.\build\Debug\src\main.o,.\build\Debug\src\mlx90614.o TO .\build\Debug\健康码识别
+PRINT(.\build\Debug\健康码识别.map) REMOVEUNUSED

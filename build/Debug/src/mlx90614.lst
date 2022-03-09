@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:26:52 PAGE 1   
+C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:34:13 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MLX90614
@@ -62,14 +62,14 @@ line level    source
   51   2                      bit_out=1;
   52   2                      else
   53   2                      bit_out=0;
-C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:26:52 PAGE 2   
+C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:34:13 PAGE 2   
 
-  54   2                      send_bit();
-*** WARNING C206 IN LINE 54 OF .\SRC\MLX90614.C: 'send_bit': missing function-prototype
+  54   2                      sen_bit();
+*** WARNING C206 IN LINE 54 OF .\SRC\MLX90614.C: 'sen_bit': missing function-prototype
   55   2                      dat=dat<<1;
   56   2              }
-  57   1              receive_bit();
-*** WARNING C206 IN LINE 57 OF .\SRC\MLX90614.C: 'receive_bit': missing function-prototype
+  57   1              receiv_bit();
+*** WARNING C206 IN LINE 57 OF .\SRC\MLX90614.C: 'receiv_bit': missing function-prototype
   58   1              if(bit_in==1)
   59   1              {
   60   2                      stop_bit();
@@ -88,16 +88,16 @@ line level    source
   72   1      }
   73          
   74          //-----------发送一个位---------
-  75          void send_bit(void)
+  75          void sen_bit(void)
   76          {
-*** ERROR C231 IN LINE 76 OF .\SRC\MLX90614.C: 'send_bit': redefinition
+*** ERROR C231 IN LINE 76 OF .\SRC\MLX90614.C: 'sen_bit': redefinition
   77   1              if(bit_out==0)
   78   1              {
-  79   2                      SDA=0;
+  79   2                  SDA=0;
   80   2              }      
   81   1              else
   82   1              {
-  83   2                      SDA=1;  
+  83   2                  SDA=1;  
   84   2              }        
   85   1              _nop_();
   86   1              SCL=1;
@@ -107,7 +107,7 @@ line level    source
   90   1              _nop_();_nop_();_nop_();_nop_();
   91   1              _nop_();_nop_();_nop_();_nop_();
   92   1      }
-*** ERROR C231 IN LINE 92 OF .\SRC\MLX90614.C: 'send_bit': redefinition
+*** ERROR C231 IN LINE 92 OF .\SRC\MLX90614.C: 'sen_bit': redefinition
   93          //----------接收一个字节--------
   94          unsigned char rx_byte(void)
   95          {
@@ -116,20 +116,20 @@ line level    source
   98   1              for(i=0;i<8;i++)
   99   1              {
  100   2                      dat=dat<<1;
- 101   2                      receive_bit();
+ 101   2                      receiv_bit();
  102   2                      if(bit_in==1)
  103   2                      dat=dat+1;
  104   2              }
- 105   1              send_bit();
+ 105   1              sen_bit();
  106   1              return dat;
  107   1      }
  108          
  109          //----------接收一个位----------
- 110          void receive_bit(void)
-C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:26:52 PAGE 3   
+ 110          void receiv_bit(void)
+C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:34:13 PAGE 3   
 
  111          {
-*** ERROR C231 IN LINE 111 OF .\SRC\MLX90614.C: 'receive_bit': redefinition
+*** ERROR C231 IN LINE 111 OF .\SRC\MLX90614.C: 'receiv_bit': redefinition
  112   1              SDA=1;bit_in=1;
  113   1              SCL=1;
  114   1              _nop_();_nop_();_nop_();_nop_();
@@ -140,7 +140,7 @@ line level    source
  119   1              _nop_();_nop_();_nop_();_nop_();
  120   1              _nop_();_nop_();_nop_();_nop_();
  121   1      }
-*** ERROR C231 IN LINE 121 OF .\SRC\MLX90614.C: 'receive_bit': redefinition
+*** ERROR C231 IN LINE 121 OF .\SRC\MLX90614.C: 'receiv_bit': redefinition
  122          
  123          unsigned int ReadObjectTemp(void)
  124          {

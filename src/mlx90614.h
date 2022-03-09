@@ -4,9 +4,9 @@
 void start_bit(void);
 void stop_bit(void);
 void tx_byte(unsigned char dat_byte);
-void send_bit(void);
+void sen_bit(void);
 unsigned char rx_byte(void);
-void receive_bit(void);
+void receiv_bit(void);
 unsigned int ReadObjectTemp(void);
 unsigned int ReadEnvironTemp(void);
 

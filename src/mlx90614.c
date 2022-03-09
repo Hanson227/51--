@@ -76,11 +76,11 @@ void send_bit(void)
 {
         if(bit_out==0)
         {
-                SDA=0;
+            SDA=0;
         }      
         else
         {
-                SDA=1;  
+            SDA=1;  
         }        
         _nop_();
         SCL=1;

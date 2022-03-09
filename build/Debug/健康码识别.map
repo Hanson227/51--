@@ -1,0 +1,456 @@
+LX51 LINKER/LOCATER V4.66.41.0                                                          03/09/2022  22:33:12  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.41.0, INVOKED BY:
+D:\KEIL5\C51\BIN\LX51.EXE .\BUILD\DEBUG\SRC\BUZZER.O, .\BUILD\DEBUG\SRC\DELAY.O, .\BUILD\DEBUG\SRC\LCD1602.O, .\BUILD\DE
+>> BUG\SRC\UART.O, .\BUILD\DEBUG\SRC\MAIN.O, .\BUILD\DEBUG\SRC\MLX90614.O TO .\BUILD\DEBUG\健康码识别 PRINT (.\build\Deb
+>> ug\健康码识别.map) REMOVEUNUSED
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  .\BUILD\DEBUG\SRC\BUZZER.O (BUZZER)
+         COMMENT TYPE 0: C51 V9.54
+  .\BUILD\DEBUG\SRC\DELAY.O (DELAY)
+         COMMENT TYPE 0: C51 V9.54
+  .\BUILD\DEBUG\SRC\LCD1602.O (LCD1602)
+         COMMENT TYPE 0: C51 V9.54
+  .\BUILD\DEBUG\SRC\UART.O (UART)
+         COMMENT TYPE 0: C51 V9.54
+  .\BUILD\DEBUG\SRC\MAIN.O (MAIN)
+         COMMENT TYPE 0: C51 V9.54
+  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
+         COMMENT TYPE 0: C51 V9.54
+  D:\KEIL5\C51\LIB\C51FPS.LIB (?C?FPADD)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51FPS.LIB (?C?FPMUL)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51FPS.LIB (?C?FCAST)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51FPS.LIB (?C?CASTF)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51S.LIB (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51S.LIB (?C?IMUL)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51S.LIB (?C?UIDIV)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51S.LIB (?C?LNEG)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51S.LIB (?C_INIT)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\BUILD\DEBUG\健康码识别 (BUZZER)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   000632H   CODE
+I:000000H   I:000000H   I:00007FH   000024H   DATA
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+
+
+MEMORY MAP OF MODULE:  .\BUILD\DEBUG\健康码识别 (BUZZER)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   000013H   00000CH   BYTE   UNIT     DATA           ?DT?MAIN
+000014H   00001CH   000009H   BYTE   UNIT     DATA           _DATA_GROUP_
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:33:12  PAGE 2
+
+
+00001DH   000021H   000005H   BYTE   UNIT     DATA           ?DT?MLX90614
+000022H   000023H   000002H   BYTE   UNIT     DATA           ?DT?BUZZER
+000024H   000024H   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   000361H   00035FH   BYTE   UNIT     CODE           ?C?LIB_CODE
+000362H   0003EDH   00008CH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+0003EEH   000479H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00047AH   0004BFH   000046H   BYTE   UNIT     CODE           ?PR?_TX_BYTE?MLX90614
+0004C0H   0004F7H   000038H   BYTE   UNIT     CODE           ?PR?READOBJECTTEMP?MLX90614
+0004F8H   00052FH   000038H   BYTE   UNIT     CODE           ?PR?READENVIRONTEMP?MLX90614
+000530H   000562H   000033H   BYTE   UNIT     CODE           ?PR?_LCD_POW?LCD1602
+000563H   00058BH   000029H   BYTE   UNIT     CODE           ?PR?RX_BYTE?MLX90614
+00058CH   0005A9H   00001EH   BYTE   UNIT     CODE           ?PR?_LCD_WRITEDATA?LCD1602
+0005AAH   0005C6H   00001DH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWNUM?LCD1602
+0005C7H   0005E3H   00001DH   BYTE   UNIT     CODE           ?PR?START_BIT?MLX90614
+0005E4H   0005FBH   000018H   BYTE   UNIT     CODE           ?PR?STOP_BIT?MLX90614
+0005FCH   000611H   000016H   BYTE   UNIT     CODE           ?PR?_LCD_SETCURSOR?LCD1602
+000612H   000620H   00000FH   BYTE   UNIT     CODE           ?PR?LCD_DELAY?LCD1602
+000621H   00062AH   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_WRITECOMMAND?LCD1602
+00062BH   000631H   000007H   BYTE   UNIT     CODE           ?C_INITSEG
+
+* * * * * * * * *   R E M O V E D     S E G M E N T S   * * * * * * * *
+   *DEL*:           000028H   BYTE   UNIT     CODE           ?PR?_BUZZER_TIME?BUZZER
+   *DEL*:           000002H   BYTE   UNIT     DATA           ?DT?_BUZZER_TIME?BUZZER
+   *DEL*:           00001DH   BYTE   UNIT     CODE           ?PR?_DELAY?DELAY
+   *DEL*:           000002H   BYTE   UNIT     DATA           ?DT?_DELAY?DELAY
+   *DEL*:           000014H   BYTE   UNIT     CODE           ?PR?LCD_INIT?LCD1602
+   *DEL*:           00000AH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWCHAR?LCD1602
+   *DEL*:           000023H   BYTE   UNIT     CODE           ?PR?_LCD_SHOWSTRING?LCD1602
+   *DEL*:           000003H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWSTRING?LCD1602
+   *DEL*:           00003AH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWSIGNEDNUM?LCD1602
+   *DEL*:           000007H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWSIGNEDNUM?LCD1602
+   *DEL*:           000039H   BYTE   UNIT     CODE           ?PR?_LCD_SHOWHEXNUM?LCD1602
+   *DEL*:           000005H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWHEXNUM?LCD1602
+   *DEL*:           000038H   BYTE   UNIT     CODE           ?PR?_LCD_SHOWBINNUM?LCD1602
+   *DEL*:           000005H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWBINNUM?LCD1602
+   *DEL*:           000017H   BYTE   UNIT     CODE           ?PR?UART_INIT?UART
+   *DEL*:           000008H   BYTE   UNIT     CODE           ?PR?_UART_SENDBYTE?UART
+   *DEL*:           000020H   BYTE   UNIT     CODE           ?PR?SEN_BIT?MLX90614
+   *DEL*:           000021H   BYTE   UNIT     CODE           ?PR?RECEIV_BIT?MLX90614
+
+
+
+OVERLAY MAP OF MODULE:   .\BUILD\DEBUG\健康码识别 (BUZZER)
+
+
+FUNCTION/MODULE                  BIT_GROUP   DATA_GROUP 
+--> CALLED FUNCTION/MODULE      START  STOP  START  STOP
+========================================================
+?C_C51STARTUP                   ----- -----  ----- -----
+  +--> MAIN/MAIN
+  +--> ?C_INITSEG
+
+MAIN/MAIN                       ----- -----  ----- -----
+  +--> READOBJECTTEMP/MLX90614
+  +--> READENVIRONTEMP/MLX90614
+  +--> _LCD_SHOWNUM/LCD1602
+
+READOBJECTTEMP/MLX90614         ----- -----  ----- -----
+  +--> START_BIT/MLX90614
+  +--> _TX_BYTE/MLX90614
+  +--> RX_BYTE/MLX90614
+  +--> STOP_BIT/MLX90614
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:33:12  PAGE 3
+
+
+
+START_BIT/MLX90614              ----- -----  ----- -----
+
+_TX_BYTE/MLX90614               ----- -----  0014H 0017H
+  +--> STOP_BIT/MLX90614
+  +--> START_BIT/MLX90614
+
+STOP_BIT/MLX90614               ----- -----  ----- -----
+
+RX_BYTE/MLX90614                ----- -----  0014H 0015H
+
+READENVIRONTEMP/MLX90614        ----- -----  ----- -----
+  +--> START_BIT/MLX90614
+  +--> _TX_BYTE/MLX90614
+  +--> RX_BYTE/MLX90614
+  +--> STOP_BIT/MLX90614
+
+_LCD_SHOWNUM/LCD1602            ----- -----  0014H 0018H
+  +--> _LCD_SETCURSOR/LCD1602
+  +--> _LCD_POW/LCD1602
+  +--> _LCD_WRITEDATA/LCD1602
+
+_LCD_SETCURSOR/LCD1602          ----- -----  ----- -----
+  +--> _LCD_WRITECOMMAND/LCD1602
+
+_LCD_WRITECOMMAND/LCD1602       ----- -----  ----- -----
+  +--> LCD_DELAY/LCD1602
+
+LCD_DELAY/LCD1602               ----- -----  ----- -----
+
+_LCD_POW/LCD1602                ----- -----  0019H 001CH
+
+_LCD_WRITEDATA/LCD1602          ----- -----  ----- -----
+  +--> LCD_DELAY/LCD1602
+
+?C_INITSEG                      ----- -----  ----- -----
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\健康码识别 (BUZZER)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+*DEL*:00000000H   DATA     BYTE      ?_LCD_ShowBinNum?BYTE
+*DEL*:00000000H   DATA     BYTE      ?_LCD_ShowHexNum?BYTE
+      00000014H   DATA     BYTE      ?_LCD_ShowNum?BYTE
+*DEL*:00000000H   DATA     BYTE      ?_LCD_ShowSignedNum?BYTE
+      0100023FH   CODE     ---       ?C?CASTF
+      010002C0H   CODE     ---       ?C?CLDOPTR
+      00000000H   NUMBER   ---       ?C?CODESEG
+      0100020BH   CODE     ---       ?C?FCASTC
+      01000206H   CODE     ---       ?C?FCASTI
+      01000201H   CODE     ---       ?C?FCASTL
+      0100000AH   CODE     ---       ?C?FPADD
+      01000276H   CODE     ---       ?C?FPGETOPN2
+      010000FBH   CODE     ---       ?C?FPMUL
+      010002ABH   CODE     ---       ?C?FPNANRESULT
+      010002B5H   CODE     ---       ?C?FPOVERFLOW
+      0100028DH   CODE     ---       ?C?FPRESULT
+      010002A1H   CODE     ---       ?C?FPRESULT2
+      01000006H   CODE     ---       ?C?FPSUB
+      010002B2H   CODE     ---       ?C?FPUNDERFLOW
+      010002EDH   CODE     ---       ?C?IMUL
+      01000354H   CODE     ---       ?C?LNEG
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:33:12  PAGE 4
+
+
+      010002FFH   CODE     ---       ?C?UIDIV
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      01000435H   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+*DEL*:00000000H   CODE     ---       _Buzzer_Time
+*DEL*:00000000H   CODE     ---       _Delay
+      0100053CH   CODE     ---       _LCD_Pow
+      010005FCH   CODE     ---       _LCD_SetCursor
+*DEL*:00000000H   CODE     ---       _LCD_ShowBinNum
+*DEL*:00000000H   CODE     ---       _LCD_ShowChar
+*DEL*:00000000H   CODE     ---       _LCD_ShowHexNum
+      010005AAH   CODE     ---       _LCD_ShowNum
+*DEL*:00000000H   CODE     ---       _LCD_ShowSignedNum
+*DEL*:00000000H   CODE     ---       _LCD_ShowString
+      01000621H   CODE     ---       _LCD_WriteCommand
+      010005A0H   CODE     ---       _LCD_WriteData
+      0100047AH   CODE     ---       _tx_byte
+*DEL*:00000000H   CODE     ---       _UART_SendByte
+      00000022H   DATA     WORD      a
+      00000020H   DATA     BYTE      bit_in
+      00000021H   DATA     BYTE      bit_out
+      0000001DH   DATA     BYTE      DataH
+      0000001EH   DATA     BYTE      DataL
+      00000010H   DATA     FLOAT     envTemp
+      01000618H   CODE     ---       LCD_Delay
+*DEL*:00000000H   CODE     ---       LCD_Init
+      01000362H   CODE     ---       main
+      0000000CH   DATA     FLOAT     objTemp
+      0000001FH   DATA     BYTE      Pecreg
+      010004F8H   CODE     ---       ReadEnvironTemp
+      010004C0H   CODE     ---       ReadObjectTemp
+*DEL*:00000000H   CODE     ---       receiv_bit
+      *EXTERN*    CODE     ---       receive_bit
+      01000568H   CODE     ---       rx_byte
+*DEL*:00000000H   CODE     ---       sen_bit
+      *EXTERN*    CODE     ---       send_bit
+      010005C7H   CODE     ---       start_bit
+      010005E4H   CODE     ---       stop_bit
+      00000008H   DATA     WORD      Temp1
+      0000000AH   DATA     WORD      Temp2
+*DEL*:00000000H   CODE     ---       UART_Init
+
+
+
+UNRESOLVED EXTERNAL SYMBOLS:
+   receive_bit
+   send_bit
+
+
+
+SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\健康码识别 (BUZZER)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       BUZZER
+      00000022H   PUBLIC    DATA     WORD      a
+
+      ---         MODULE    ---      ---       DELAY
+
+      ---         MODULE    ---      ---       LCD1602
+      00000014H   PUBLIC    DATA     BYTE      ?_LCD_ShowNum?BYTE
+      010005AAH   PUBLIC    CODE     ---       _LCD_ShowNum
+      0100053CH   PUBLIC    CODE     ---       _LCD_Pow
+      010005FCH   PUBLIC    CODE     ---       _LCD_SetCursor
+      010005A0H   PUBLIC    CODE     ---       _LCD_WriteData
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:33:12  PAGE 5
+
+
+      01000621H   PUBLIC    CODE     ---       _LCD_WriteCommand
+      01000618H   PUBLIC    CODE     ---       LCD_Delay
+
+      01000612H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000618H   BLOCK     CODE     ---       LVL=0
+      01000618H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000007H   SYMBOL    DATA     VOID      i
+      00000006H   SYMBOL    DATA     VOID      j
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000621H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100058CH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010005A0H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010005FCH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+      00000005H   SYMBOL    DATA     VOID      i
+
+      01000530H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100053CH   BLOCK     CODE     ---       LVL=0
+      01000544H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000003H   SYMBOL    DATA     VOID      i
+      00000006H   SYMBOL    DATA     VOID      Result
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010005AAH   BLOCK     CODE     ---       LVL=0
+      010005AEH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000002H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+      00000002H   SYMBOL    DATA     VOID      i
+      00000002H   SYMBOL    DATA     VOID      i
+      00000006H   SYMBOL    DATA     VOID      SingleNumber
+      00000002H   SYMBOL    DATA     VOID      i
+
+      ---         MODULE    ---      ---       UART
+
+      ---         MODULE    ---      ---       MAIN
+      00000010H   PUBLIC    DATA     FLOAT     envTemp
+      0000000CH   PUBLIC    DATA     FLOAT     objTemp
+      0000000AH   PUBLIC    DATA     WORD      Temp2
+      00000008H   PUBLIC    DATA     WORD      Temp1
+      01000362H   PUBLIC    CODE     ---       main
+
+      01000362H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       MLX90614
+      00000021H   PUBLIC    DATA     BYTE      bit_out
+      00000020H   PUBLIC    DATA     BYTE      bit_in
+      0000001FH   PUBLIC    DATA     BYTE      Pecreg
+      0000001EH   PUBLIC    DATA     BYTE      DataL
+      0000001DH   PUBLIC    DATA     BYTE      DataH
+      010004F8H   PUBLIC    CODE     ---       ReadEnvironTemp
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:33:12  PAGE 6
+
+
+      010004C0H   PUBLIC    CODE     ---       ReadObjectTemp
+      01000568H   PUBLIC    CODE     ---       rx_byte
+      0100047AH   PUBLIC    CODE     ---       _tx_byte
+      010005E4H   PUBLIC    CODE     ---       stop_bit
+      010005C7H   PUBLIC    CODE     ---       start_bit
+
+      010005C7H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010005E4H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100047AH   BLOCK     CODE     ---       LVL=0
+      0100047CH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000015H   SYMBOL    DATA     VOID      i
+      00000016H   SYMBOL    DATA     VOID      n
+      00000017H   SYMBOL    DATA     VOID      dat
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000563H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000568H   BLOCK     CODE     ---       LVL=0
+      01000568H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000014H   SYMBOL    DATA     VOID      i
+      00000015H   SYMBOL    DATA     VOID      dat
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010004C0H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010004F8H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       ?C?FPADD
+      0100000AH   PUBLIC    CODE     ---       ?C?FPADD
+      01000006H   PUBLIC    CODE     ---       ?C?FPSUB
+
+      ---         MODULE    ---      ---       ?C?FPMUL
+      010000FBH   PUBLIC    CODE     ---       ?C?FPMUL
+
+      ---         MODULE    ---      ---       ?C?FCAST
+      0100020BH   PUBLIC    CODE     ---       ?C?FCASTC
+      01000206H   PUBLIC    CODE     ---       ?C?FCASTI
+      01000201H   PUBLIC    CODE     ---       ?C?FCASTL
+
+      ---         MODULE    ---      ---       ?C?CASTF
+      0100023FH   PUBLIC    CODE     ---       ?C?CASTF
+
+      ---         MODULE    ---      ---       ?C?FPGETOPN
+      01000276H   PUBLIC    CODE     ---       ?C?FPGETOPN2
+      010002ABH   PUBLIC    CODE     ---       ?C?FPNANRESULT
+      010002B5H   PUBLIC    CODE     ---       ?C?FPOVERFLOW
+      0100028DH   PUBLIC    CODE     ---       ?C?FPRESULT
+      010002A1H   PUBLIC    CODE     ---       ?C?FPRESULT2
+      010002B2H   PUBLIC    CODE     ---       ?C?FPUNDERFLOW
+
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+
+      ---         MODULE    ---      ---       ?C?CLDOPTR
+      010002C0H   PUBLIC    CODE     ---       ?C?CLDOPTR
+
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:33:12  PAGE 7
+
+
+      ---         MODULE    ---      ---       ?C?IMUL
+      010002EDH   PUBLIC    CODE     ---       ?C?IMUL
+
+      ---         MODULE    ---      ---       ?C?UIDIV
+      010002FFH   PUBLIC    CODE     ---       ?C?UIDIV
+
+      ---         MODULE    ---      ---       ?C?LNEG
+      01000354H   PUBLIC    CODE     ---       ?C?LNEG
+
+      ---         MODULE    ---      ---       ?C_INIT
+      01000435H   PUBLIC    CODE     ---       ?C_START
+
+
+
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  receive_bit
+    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
+
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  send_bit
+    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
+
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  send_bit
+    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
+    ADDRESS: 1000493H
+
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  receive_bit
+    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
+    ADDRESS: 10004A7H
+
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  receive_bit
+    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
+    ADDRESS: 1000574H
+
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  send_bit
+    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
+    ADDRESS: 1000587H
+
+Program Size: data=37.0 xdata=0 const=0 code=1586
+LX51 RUN COMPLETE.  0 WARNING(S),  6 ERROR(S)
