@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.41.0                                                          03/09/2022  22:39:40  PAGE 1
+LX51 LINKER/LOCATER V4.66.41.0                                                          03/11/2022  12:50:42  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.41.0, INVOKED BY:
@@ -44,6 +44,8 @@ INPUT MODULES INCLUDED:
          COMMENT TYPE 1: A51 / ASM51 Assembler
   D:\KEIL5\C51\LIB\C51S.LIB (?C?LNEG)
          COMMENT TYPE 1: A51 / ASM51 Assembler
+  D:\KEIL5\C51\LIB\C51S.LIB (?C_IBP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
   D:\KEIL5\C51\LIB\C51S.LIB (?C_INIT)
          COMMENT TYPE 1: A51 / ASM51 Assembler
 
@@ -52,8 +54,8 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZ
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   000632H   CODE
-I:000000H   I:000000H   I:00007FH   000024H   DATA
+C:000000H   C:000000H   C:00FFFFH   000675H   CODE
+I:000000H   I:000000H   I:00007FH   000025H   DATA
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 
 
@@ -65,33 +67,36 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
 000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/11/2022  12:50:42  PAGE 2
+
+
 000008H   000013H   00000CH   BYTE   UNIT     DATA           ?DT?MAIN
 000014H   00001CH   000009H   BYTE   UNIT     DATA           _DATA_GROUP_
-LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:39:40  PAGE 2
-
-
 00001DH   000021H   000005H   BYTE   UNIT     DATA           ?DT?MLX90614
 000022H   000023H   000002H   BYTE   UNIT     DATA           ?DT?BUZZER
-000024H   000024H   000001H   BYTE   UNIT     IDATA          ?STACK
+000024H   000024H   000001H   BYTE   UNIT     DATA           ?C?LIB_DATA
+000025H   000025H   000001H   BYTE   UNIT     IDATA          ?STACK
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
 000003H   000361H   00035FH   BYTE   UNIT     CODE           ?C?LIB_CODE
 000362H   0003EDH   00008CH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
 0003EEH   000479H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-00047AH   0004BFH   000046H   BYTE   UNIT     CODE           ?PR?_TX_BYTE?MLX90614
-0004C0H   0004F7H   000038H   BYTE   UNIT     CODE           ?PR?READOBJECTTEMP?MLX90614
-0004F8H   00052FH   000038H   BYTE   UNIT     CODE           ?PR?READENVIRONTEMP?MLX90614
-000530H   000562H   000033H   BYTE   UNIT     CODE           ?PR?_LCD_POW?LCD1602
-000563H   00058BH   000029H   BYTE   UNIT     CODE           ?PR?RX_BYTE?MLX90614
-00058CH   0005A9H   00001EH   BYTE   UNIT     CODE           ?PR?_LCD_WRITEDATA?LCD1602
-0005AAH   0005C6H   00001DH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWNUM?LCD1602
-0005C7H   0005E3H   00001DH   BYTE   UNIT     CODE           ?PR?START_BIT?MLX90614
-0005E4H   0005FBH   000018H   BYTE   UNIT     CODE           ?PR?STOP_BIT?MLX90614
-0005FCH   000611H   000016H   BYTE   UNIT     CODE           ?PR?_LCD_SETCURSOR?LCD1602
-000612H   000620H   00000FH   BYTE   UNIT     CODE           ?PR?LCD_DELAY?LCD1602
-000621H   00062AH   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_WRITECOMMAND?LCD1602
-00062BH   000631H   000007H   BYTE   UNIT     CODE           ?C_INITSEG
+00047AH   0004EBH   000072H   BYTE   UNIT     CODE           ?PR?_?TX_BYTE?MLX90614
+0004ECH   000526H   00003BH   BYTE   UNIT     CODE           ?PR?STOP_BIT?MLX90614
+000527H   000559H   000033H   BYTE   UNIT     CODE           ?PR?_LCD_POW?LCD1602
+00055AH   00057AH   000021H   BYTE   UNIT     CODE           ?PR?MLX90614_RECEIVE_BIT?MLX90614
+00057BH   00059AH   000020H   BYTE   UNIT     CODE           ?PR?MLX90614_SEND_BIT?MLX90614
+00059BH   0005B8H   00001EH   BYTE   UNIT     CODE           ?PR?_LCD_WRITEDATA?LCD1602
+0005B9H   0005D5H   00001DH   BYTE   UNIT     CODE           ?PR?_LCD_SHOWNUM?LCD1602
+0005D6H   0005F2H   00001DH   BYTE   UNIT     CODE           ?PR?START_BIT?MLX90614
+0005F3H   00060CH   00001AH   BYTE   UNIT     CODE           ?PR?READOBJECTTEMP?MLX90614
+00060DH   000626H   00001AH   BYTE   UNIT     CODE           ?PR?READENVIRONTEMP?MLX90614
+000627H   00063EH   000018H   BYTE   UNIT     CODE           ?PR?RX_BYTE?MLX90614
+00063FH   000654H   000016H   BYTE   UNIT     CODE           ?PR?_LCD_SETCURSOR?LCD1602
+000655H   000663H   00000FH   BYTE   UNIT     CODE           ?PR?LCD_DELAY?LCD1602
+000664H   00066DH   00000AH   BYTE   UNIT     CODE           ?PR?_LCD_WRITECOMMAND?LCD1602
+00066EH   000674H   000007H   BYTE   UNIT     CODE           ?C_INITSEG
 
 * * * * * * * * *   R E M O V E D     S E G M E N T S   * * * * * * * *
    *DEL*:           000028H   BYTE   UNIT     CODE           ?PR?_BUZZER_TIME?BUZZER
@@ -110,8 +115,6 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
    *DEL*:           000005H   BYTE   UNIT     DATA           ?DT?_LCD_SHOWBINNUM?LCD1602
    *DEL*:           000017H   BYTE   UNIT     CODE           ?PR?UART_INIT?UART
    *DEL*:           000008H   BYTE   UNIT     CODE           ?PR?_UART_SENDBYTE?UART
-   *DEL*:           000020H   BYTE   UNIT     CODE           ?PR?MLX90614_SEND_BIT?MLX90614
-   *DEL*:           000021H   BYTE   UNIT     CODE           ?PR?MLX90614_RECEIVE_BIT?MLX90614
 
 
 
@@ -132,27 +135,36 @@ MAIN/MAIN                          ----- -----  ----- -----
 
 READOBJECTTEMP/MLX90614            ----- -----  ----- -----
   +--> START_BIT/MLX90614
-  +--> _TX_BYTE/MLX90614
-  +--> RX_BYTE/MLX90614
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/11/2022  12:50:42  PAGE 3
+
+
+  +--> _?TX_BYTE/MLX90614
   +--> STOP_BIT/MLX90614
-LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:39:40  PAGE 3
-
-
 
 START_BIT/MLX90614                 ----- -----  ----- -----
 
-_TX_BYTE/MLX90614                  ----- -----  0014H 0017H
+_?TX_BYTE/MLX90614                 ----- -----  ----- -----
+  +--> MLX90614_SEND_BIT/MLX90614
+  +--> MLX90614_RECEIVE_BIT/MLX90614
   +--> STOP_BIT/MLX90614
   +--> START_BIT/MLX90614
 
-STOP_BIT/MLX90614                  ----- -----  ----- -----
+MLX90614_SEND_BIT/MLX90614         ----- -----  ----- -----
 
-RX_BYTE/MLX90614                   ----- -----  0014H 0015H
+MLX90614_RECEIVE_BIT/MLX90614      ----- -----  ----- -----
+
+STOP_BIT/MLX90614                  ----- -----  ----- -----
+  +--> _?TX_BYTE/MLX90614
+  +--> START_BIT/MLX90614
+  +--> RX_BYTE/MLX90614
+
+RX_BYTE/MLX90614                   ----- -----  ----- -----
+  +--> MLX90614_RECEIVE_BIT/MLX90614
+  +--> MLX90614_SEND_BIT/MLX90614
 
 READENVIRONTEMP/MLX90614           ----- -----  ----- -----
   +--> START_BIT/MLX90614
-  +--> _TX_BYTE/MLX90614
-  +--> RX_BYTE/MLX90614
+  +--> _?TX_BYTE/MLX90614
   +--> STOP_BIT/MLX90614
 
 _LCD_SHOWNUM/LCD1602               ----- -----  0014H 0018H
@@ -191,6 +203,9 @@ PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZER)
       00000000H   NUMBER   ---       ?C?CODESEG
       0100020BH   CODE     ---       ?C?FCASTC
       01000206H   CODE     ---       ?C?FCASTI
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/11/2022  12:50:42  PAGE 4
+
+
       01000201H   CODE     ---       ?C?FCASTL
       0100000AH   CODE     ---       ?C?FPADD
       01000276H   CODE     ---       ?C?FPGETOPN2
@@ -203,26 +218,24 @@ PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZER)
       010002B2H   CODE     ---       ?C?FPUNDERFLOW
       010002EDH   CODE     ---       ?C?IMUL
       01000354H   CODE     ---       ?C?LNEG
-LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:39:40  PAGE 4
-
-
       010002FFH   CODE     ---       ?C?UIDIV
       00000000H   NUMBER   ---       ?C?XDATASEG
+      00000024H   DATA     ---       ?C_IBP
       01000435H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
+      0100047AH   CODE     ---       _?tx_byte
 *DEL*:00000000H   CODE     ---       _Buzzer_Time
 *DEL*:00000000H   CODE     ---       _Delay
-      0100053CH   CODE     ---       _LCD_Pow
-      010005FCH   CODE     ---       _LCD_SetCursor
+      01000533H   CODE     ---       _LCD_Pow
+      0100063FH   CODE     ---       _LCD_SetCursor
 *DEL*:00000000H   CODE     ---       _LCD_ShowBinNum
 *DEL*:00000000H   CODE     ---       _LCD_ShowChar
 *DEL*:00000000H   CODE     ---       _LCD_ShowHexNum
-      010005AAH   CODE     ---       _LCD_ShowNum
+      010005B9H   CODE     ---       _LCD_ShowNum
 *DEL*:00000000H   CODE     ---       _LCD_ShowSignedNum
 *DEL*:00000000H   CODE     ---       _LCD_ShowString
-      01000621H   CODE     ---       _LCD_WriteCommand
-      010005A0H   CODE     ---       _LCD_WriteData
-      0100047AH   CODE     ---       _tx_byte
+      01000664H   CODE     ---       _LCD_WriteCommand
+      010005AFH   CODE     ---       _LCD_WriteData
 *DEL*:00000000H   CODE     ---       _UART_SendByte
       00000022H   DATA     WORD      a
       00000020H   DATA     BYTE      bit_in
@@ -230,29 +243,21 @@ PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZER)
       0000001DH   DATA     BYTE      DataH
       0000001EH   DATA     BYTE      DataL
       00000010H   DATA     FLOAT     envTemp
-      01000618H   CODE     ---       LCD_Delay
+      0100065BH   CODE     ---       LCD_Delay
 *DEL*:00000000H   CODE     ---       LCD_Init
       01000362H   CODE     ---       main
-*DEL*:00000000H   CODE     ---       MLX90614_receive_bit
-*DEL*:00000000H   CODE     ---       MLX90614_send_bit
+      0100055AH   CODE     ---       MLX90614_receive_bit
+      0100057BH   CODE     ---       MLX90614_send_bit
       0000000CH   DATA     FLOAT     objTemp
       0000001FH   DATA     BYTE      Pecreg
-      010004F8H   CODE     ---       ReadEnvironTemp
-      010004C0H   CODE     ---       ReadObjectTemp
-      *EXTERN*    CODE     ---       receive_bit
-      01000568H   CODE     ---       rx_byte
-      *EXTERN*    CODE     ---       send_bit
-      010005C7H   CODE     ---       start_bit
-      010005E4H   CODE     ---       stop_bit
+      0100060DH   CODE     ---       ReadEnvironTemp
+      010005F3H   CODE     ---       ReadObjectTemp
+      01000627H   CODE     ---       rx_byte
+      010005D6H   CODE     ---       start_bit
+      0100050FH   CODE     ---       stop_bit
       00000008H   DATA     WORD      Temp1
       0000000AH   DATA     WORD      Temp2
 *DEL*:00000000H   CODE     ---       UART_Init
-
-
-
-UNRESOLVED EXTERNAL SYMBOLS:
-   receive_bit
-   send_bit
 
 
 
@@ -266,52 +271,52 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZER)
       ---         MODULE    ---      ---       DELAY
 
       ---         MODULE    ---      ---       LCD1602
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/11/2022  12:50:42  PAGE 5
+
+
       00000014H   PUBLIC    DATA     BYTE      ?_LCD_ShowNum?BYTE
-      010005AAH   PUBLIC    CODE     ---       _LCD_ShowNum
-      0100053CH   PUBLIC    CODE     ---       _LCD_Pow
-      010005FCH   PUBLIC    CODE     ---       _LCD_SetCursor
-      010005A0H   PUBLIC    CODE     ---       _LCD_WriteData
-LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:39:40  PAGE 5
+      010005B9H   PUBLIC    CODE     ---       _LCD_ShowNum
+      01000533H   PUBLIC    CODE     ---       _LCD_Pow
+      0100063FH   PUBLIC    CODE     ---       _LCD_SetCursor
+      010005AFH   PUBLIC    CODE     ---       _LCD_WriteData
+      01000664H   PUBLIC    CODE     ---       _LCD_WriteCommand
+      0100065BH   PUBLIC    CODE     ---       LCD_Delay
 
-
-      01000621H   PUBLIC    CODE     ---       _LCD_WriteCommand
-      01000618H   PUBLIC    CODE     ---       LCD_Delay
-
-      01000612H   BLOCK     CODE     ---       LVL=0
+      01000655H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000618H   BLOCK     CODE     ---       LVL=0
-      01000618H   BLOCK     CODE     NEAR LAB  LVL=1
+      0100065BH   BLOCK     CODE     ---       LVL=0
+      0100065BH   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     VOID      i
       00000006H   SYMBOL    DATA     VOID      j
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000621H   BLOCK     CODE     ---       LVL=0
+      01000664H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100058CH   BLOCK     CODE     ---       LVL=0
+      0100059BH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010005A0H   BLOCK     CODE     ---       LVL=0
+      010005AFH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010005FCH   BLOCK     CODE     ---       LVL=0
+      0100063FH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
       00000005H   SYMBOL    DATA     VOID      i
 
-      01000530H   BLOCK     CODE     ---       LVL=0
+      01000527H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100053CH   BLOCK     CODE     ---       LVL=0
-      01000544H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000533H   BLOCK     CODE     ---       LVL=0
+      0100053BH   BLOCK     CODE     NEAR LAB  LVL=1
       00000003H   SYMBOL    DATA     VOID      i
       00000006H   SYMBOL    DATA     VOID      Result
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010005AAH   BLOCK     CODE     ---       LVL=0
-      010005AEH   BLOCK     CODE     NEAR LAB  LVL=1
+      010005B9H   BLOCK     CODE     ---       LVL=0
+      010005BDH   BLOCK     CODE     NEAR LAB  LVL=1
       00000002H   SYMBOL    DATA     VOID      i
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
@@ -334,48 +339,59 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZER)
 
       ---         MODULE    ---      ---       MLX90614
       00000021H   PUBLIC    DATA     BYTE      bit_out
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/11/2022  12:50:42  PAGE 6
+
+
       00000020H   PUBLIC    DATA     BYTE      bit_in
       0000001FH   PUBLIC    DATA     BYTE      Pecreg
       0000001EH   PUBLIC    DATA     BYTE      DataL
       0000001DH   PUBLIC    DATA     BYTE      DataH
-      010004F8H   PUBLIC    CODE     ---       ReadEnvironTemp
-LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:39:40  PAGE 6
+      0100060DH   PUBLIC    CODE     ---       ReadEnvironTemp
+      010005F3H   PUBLIC    CODE     ---       ReadObjectTemp
+      01000627H   PUBLIC    CODE     ---       rx_byte
+      0100047AH   PUBLIC    CODE     ---       _?tx_byte
+      0100057BH   PUBLIC    CODE     ---       MLX90614_send_bit
+      0100055AH   PUBLIC    CODE     ---       MLX90614_receive_bit
+      0100050FH   PUBLIC    CODE     ---       stop_bit
+      010005D6H   PUBLIC    CODE     ---       start_bit
 
-
-      010004C0H   PUBLIC    CODE     ---       ReadObjectTemp
-      01000568H   PUBLIC    CODE     ---       rx_byte
-      0100047AH   PUBLIC    CODE     ---       _tx_byte
-      010005E4H   PUBLIC    CODE     ---       stop_bit
-      010005C7H   PUBLIC    CODE     ---       start_bit
-
-      010005C7H   BLOCK     CODE     ---       LVL=0
+      010005D6H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010005E4H   BLOCK     CODE     ---       LVL=0
+      010004ECH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100050FH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100055AH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100057BH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       0100047AH   BLOCK     CODE     ---       LVL=0
-      0100047CH   BLOCK     CODE     NEAR LAB  LVL=1
-      00000015H   SYMBOL    DATA     VOID      i
-      00000016H   SYMBOL    DATA     VOID      n
-      00000017H   SYMBOL    DATA     VOID      dat
+      01000486H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000000H   SYMBOL    ISTK     VOID      i
+      00000001H   SYMBOL    ISTK     VOID      n
+      00000002H   SYMBOL    ISTK     VOID      dat
+      0100048BH   SYMBOL    CODE     VOID      TX_again
+      010004E0H   SYMBOL    CODE     VOID      Repeat
+      010004E5H   SYMBOL    CODE     VOID      exit
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000563H   BLOCK     CODE     ---       LVL=0
-      ---         BLOCKEND  ---      ---       LVL=0
-
-      01000568H   BLOCK     CODE     ---       LVL=0
-      01000568H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000014H   SYMBOL    DATA     VOID      i
-      00000015H   SYMBOL    DATA     VOID      dat
+      01000627H   BLOCK     CODE     ---       LVL=0
+      01000627H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000006H   SYMBOL    DATA     VOID      i
+      00000007H   SYMBOL    DATA     VOID      dat
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010004C0H   BLOCK     CODE     ---       LVL=0
+      010005F3H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010004F8H   BLOCK     CODE     ---       LVL=0
+      0100060DH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C?FPADD
@@ -391,6 +407,9 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZER)
       01000201H   PUBLIC    CODE     ---       ?C?FCASTL
 
       ---         MODULE    ---      ---       ?C?CASTF
+LX51 LINKER/LOCATER V4.66.41.0                                                        03/11/2022  12:50:42  PAGE 7
+
+
       0100023FH   PUBLIC    CODE     ---       ?C?CASTF
 
       ---         MODULE    ---      ---       ?C?FPGETOPN
@@ -407,9 +426,6 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZER)
       ---         MODULE    ---      ---       ?C?CLDOPTR
       010002C0H   PUBLIC    CODE     ---       ?C?CLDOPTR
 
-LX51 LINKER/LOCATER V4.66.41.0                                                        03/09/2022  22:39:40  PAGE 7
-
-
       ---         MODULE    ---      ---       ?C?IMUL
       010002EDH   PUBLIC    CODE     ---       ?C?IMUL
 
@@ -419,38 +435,11 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\������ʶ�� (BUZZER)
       ---         MODULE    ---      ---       ?C?LNEG
       01000354H   PUBLIC    CODE     ---       ?C?LNEG
 
+      ---         MODULE    ---      ---       ?C_IBP
+      00000024H   PUBLIC    DATA     ---       ?C_IBP
+
       ---         MODULE    ---      ---       ?C_INIT
       01000435H   PUBLIC    CODE     ---       ?C_START
 
-
-
-*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  receive_bit
-    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
-
-*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  send_bit
-    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
-
-*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  send_bit
-    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
-    ADDRESS: 1000493H
-
-*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  receive_bit
-    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
-    ADDRESS: 10004A7H
-
-*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  receive_bit
-    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
-    ADDRESS: 1000574H
-
-*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  send_bit
-    MODULE:  .\BUILD\DEBUG\SRC\MLX90614.O (MLX90614)
-    ADDRESS: 1000587H
-
-Program Size: data=37.0 xdata=0 const=0 code=1586
-LX51 RUN COMPLETE.  0 WARNING(S),  6 ERROR(S)
+Program Size: data=38.0 xdata=0 const=0 code=1653
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -18,4 +18,5 @@ int main()
     envTemp=(float)(Temp2)*0.02-273.15;
     LCD_ShowNum(1,1,objTemp,5);
     LCD_ShowNum(2,1,envTemp,5);
+    return 0;
 }
