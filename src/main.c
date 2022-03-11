@@ -11,6 +11,7 @@ float objTemp,envTemp;         //物体温度和环境温度
 
 int main()
 {
+    LCD_Init();
     Temp1=ReadObjectTemp();         //读取实物温度
     objTemp=(float)(Temp1)*0.02-273.15;
        

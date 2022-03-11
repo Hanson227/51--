@@ -672,3 +672,14 @@ C51 COMPILATION COMPLETE.  2 WARNING(S),  4 ERROR(S)
 [2022-03-11 12:53:00]	[done]
 	build successfully !
 
+[2022-03-11 19:43:40]	compilation failed at : "c:\Users\Hanson\Desktop\项目\健康码识别\src\main.c", exit code: 2
+  at unify_builder.Program.Main (System.String[] args) [0x0187a] in <67d11e1b30504dd6babd321425698ba1>:0 
+---
+C51 COMPILER V9.54 - SN: K1DZC-86WUCC
+COPYRIGHT Copyright (C) 2012 - 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+*** ERROR C141 IN LINE 20 OF .\SRC\MAIN.C: syntax error near 'LCD_ShowNum'
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)
+
+[2022-03-11 19:44:01]	[done]
+	build successfully !
+

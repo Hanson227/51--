@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  03/11/2022 12:53:00 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  03/11/2022 19:44:01 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -22,16 +22,19 @@ line level    source
   11          
   12          int main()
   13          {
-  14   1          Temp1=ReadObjectTemp();         //读取实物温度
-  15   1          objTemp=(float)(Temp1)*0.02-273.15;
-  16   1             
-  17   1          Temp2=ReadEnvironTemp();         //读取环境温度
-  18   1          envTemp=(float)(Temp2)*0.02-273.15;
-  19   1          LCD_ShowNum(1,1,objTemp,5);
-  20   1          LCD_ShowNum(2,1,envTemp,5);
-  21   1          return 0;
-  22   1      }
-C51 COMPILER V9.54   MAIN                                                                  03/11/2022 12:53:00 PAGE 2   
+  14   1          LCD_Init();
+  15   1          Temp1=ReadObjectTemp();         //读取实物温度
+  16   1          objTemp=(float)(Temp1)*0.02-273.15;
+  17   1             
+  18   1          Temp2=ReadEnvironTemp();         //读取环境温度
+  19   1          envTemp=(float)(Temp2)*0.02-273.15;
+  20   1          LCD_ShowString(1,5,'A');
+*** WARNING C196 IN LINE 20 OF .\SRC\MAIN.C: mspace probably invalid
+  21   1          LCD_ShowNum(1,1,objTemp,5);
+  22   1          LCD_ShowNum(2,1,envTemp,5);
+  23   1          return 0;
+  24   1      }
+C51 COMPILER V9.54   MAIN                                                                  03/11/2022 19:44:01 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -40,87 +43,96 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 12
                                            ; SOURCE LINE # 13
                                            ; SOURCE LINE # 14
-0000 120000      E     LCALL   ReadObjectTemp
-0003 8E00        R     MOV     Temp1,R6
-0005 8F00        R     MOV     Temp1+01H,R7
+0000 120000      E     LCALL   LCD_Init
                                            ; SOURCE LINE # 15
-0007 AC00        R     MOV     R4,Temp1
-0009 AD00        R     MOV     R5,Temp1+01H
-000B E4                CLR     A
-000C 120000      E     LCALL   ?C?FCASTI
-000F 7B0A              MOV     R3,#0AH
-0011 7AD7              MOV     R2,#0D7H
-0013 79A3              MOV     R1,#0A3H
-0015 783C              MOV     R0,#03CH
-0017 120000      E     LCALL   ?C?FPMUL
-001A 7B33              MOV     R3,#033H
-001C 7A93              MOV     R2,#093H
-001E 7988              MOV     R1,#088H
-0020 78C3              MOV     R0,#0C3H
-0022 120000      E     LCALL   ?C?FPADD
-0025 8F00        R     MOV     objTemp+03H,R7
-0027 8E00        R     MOV     objTemp+02H,R6
-0029 8D00        R     MOV     objTemp+01H,R5
-002B 8C00        R     MOV     objTemp,R4
-                                           ; SOURCE LINE # 17
-002D 120000      E     LCALL   ReadEnvironTemp
-0030 8E00        R     MOV     Temp2,R6
-0032 8F00        R     MOV     Temp2+01H,R7
+0003 120000      E     LCALL   ReadObjectTemp
+0006 8E00        R     MOV     Temp1,R6
+0008 8F00        R     MOV     Temp1+01H,R7
+                                           ; SOURCE LINE # 16
+000A AC00        R     MOV     R4,Temp1
+000C AD00        R     MOV     R5,Temp1+01H
+000E E4                CLR     A
+000F 120000      E     LCALL   ?C?FCASTI
+0012 7B0A              MOV     R3,#0AH
+0014 7AD7              MOV     R2,#0D7H
+0016 79A3              MOV     R1,#0A3H
+0018 783C              MOV     R0,#03CH
+001A 120000      E     LCALL   ?C?FPMUL
+001D 7B33              MOV     R3,#033H
+001F 7A93              MOV     R2,#093H
+0021 7988              MOV     R1,#088H
+0023 78C3              MOV     R0,#0C3H
+0025 120000      E     LCALL   ?C?FPADD
+0028 8F00        R     MOV     objTemp+03H,R7
+002A 8E00        R     MOV     objTemp+02H,R6
+002C 8D00        R     MOV     objTemp+01H,R5
+002E 8C00        R     MOV     objTemp,R4
                                            ; SOURCE LINE # 18
-0034 AC00        R     MOV     R4,Temp2
-0036 AD00        R     MOV     R5,Temp2+01H
-0038 E4                CLR     A
-0039 120000      E     LCALL   ?C?FCASTI
-003C 7B0A              MOV     R3,#0AH
-003E 7AD7              MOV     R2,#0D7H
-0040 79A3              MOV     R1,#0A3H
-0042 783C              MOV     R0,#03CH
-0044 120000      E     LCALL   ?C?FPMUL
-0047 7B33              MOV     R3,#033H
-0049 7A93              MOV     R2,#093H
-004B 7988              MOV     R1,#088H
-004D 78C3              MOV     R0,#0C3H
-004F 120000      E     LCALL   ?C?FPADD
-0052 8F00        R     MOV     envTemp+03H,R7
-0054 8E00        R     MOV     envTemp+02H,R6
-0056 8D00        R     MOV     envTemp+01H,R5
-0058 8C00        R     MOV     envTemp,R4
+0030 120000      E     LCALL   ReadEnvironTemp
+0033 8E00        R     MOV     Temp2,R6
+0035 8F00        R     MOV     Temp2+01H,R7
                                            ; SOURCE LINE # 19
-005A AF00        R     MOV     R7,objTemp+03H
-005C AE00        R     MOV     R6,objTemp+02H
-005E AD00        R     MOV     R5,objTemp+01H
-0060 AC00        R     MOV     R4,objTemp
-0062 120000      E     LCALL   ?C?CASTF
-0065 AB07              MOV     R3,AR7
-0067 AA06              MOV     R2,AR6
-0069 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
-006C 7D01              MOV     R5,#01H
-C51 COMPILER V9.54   MAIN                                                                  03/11/2022 12:53:00 PAGE 3   
-
-006E 7F01              MOV     R7,#01H
-0070 120000      E     LCALL   _LCD_ShowNum
+0037 AC00        R     MOV     R4,Temp2
+0039 AD00        R     MOV     R5,Temp2+01H
+003B E4                CLR     A
+003C 120000      E     LCALL   ?C?FCASTI
+003F 7B0A              MOV     R3,#0AH
+0041 7AD7              MOV     R2,#0D7H
+0043 79A3              MOV     R1,#0A3H
+0045 783C              MOV     R0,#03CH
+0047 120000      E     LCALL   ?C?FPMUL
+004A 7B33              MOV     R3,#033H
+004C 7A93              MOV     R2,#093H
+004E 7988              MOV     R1,#088H
+0050 78C3              MOV     R0,#0C3H
+0052 120000      E     LCALL   ?C?FPADD
+0055 8F00        R     MOV     envTemp+03H,R7
+0057 8E00        R     MOV     envTemp+02H,R6
+0059 8D00        R     MOV     envTemp+01H,R5
+005B 8C00        R     MOV     envTemp,R4
                                            ; SOURCE LINE # 20
-0073 AF00        R     MOV     R7,envTemp+03H
-0075 AE00        R     MOV     R6,envTemp+02H
-0077 AD00        R     MOV     R5,envTemp+01H
-0079 AC00        R     MOV     R4,envTemp
-007B 120000      E     LCALL   ?C?CASTF
-007E AB07              MOV     R3,AR7
-0080 AA06              MOV     R2,AR6
-0082 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
-0085 7D01              MOV     R5,#01H
-0087 7F02              MOV     R7,#02H
-0089 120000      E     LCALL   _LCD_ShowNum
+005D 7B00              MOV     R3,#00H
+005F 7A00              MOV     R2,#00H
+0061 7941              MOV     R1,#041H
+0063 7D05              MOV     R5,#05H
+0065 7F01              MOV     R7,#01H
+0067 120000      E     LCALL   _LCD_ShowString
                                            ; SOURCE LINE # 21
-008C E4                CLR     A
-008D FE                MOV     R6,A
-008E FF                MOV     R7,A
+C51 COMPILER V9.54   MAIN                                                                  03/11/2022 19:44:01 PAGE 3   
+
+006A AF00        R     MOV     R7,objTemp+03H
+006C AE00        R     MOV     R6,objTemp+02H
+006E AD00        R     MOV     R5,objTemp+01H
+0070 AC00        R     MOV     R4,objTemp
+0072 120000      E     LCALL   ?C?CASTF
+0075 AB07              MOV     R3,AR7
+0077 AA06              MOV     R2,AR6
+0079 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
+007C 7D01              MOV     R5,#01H
+007E 7F01              MOV     R7,#01H
+0080 120000      E     LCALL   _LCD_ShowNum
                                            ; SOURCE LINE # 22
-008F         ?C0001:
-008F 22                RET     
+0083 AF00        R     MOV     R7,envTemp+03H
+0085 AE00        R     MOV     R6,envTemp+02H
+0087 AD00        R     MOV     R5,envTemp+01H
+0089 AC00        R     MOV     R4,envTemp
+008B 120000      E     LCALL   ?C?CASTF
+008E AB07              MOV     R3,AR7
+0090 AA06              MOV     R2,AR6
+0092 750005      E     MOV     ?_LCD_ShowNum?BYTE+04H,#05H
+0095 7D01              MOV     R5,#01H
+0097 7F02              MOV     R7,#02H
+0099 120000      E     LCALL   _LCD_ShowNum
+                                           ; SOURCE LINE # 23
+009C E4                CLR     A
+009D FE                MOV     R6,A
+009E FF                MOV     R7,A
+                                           ; SOURCE LINE # 24
+009F         ?C0001:
+009F 22                RET     
              ; FUNCTION main (END)
 
-C51 COMPILER V9.54   MAIN                                                                  03/11/2022 12:53:00 PAGE 4   
+C51 COMPILER V9.54   MAIN                                                                  03/11/2022 19:44:01 PAGE 4   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -183,7 +195,7 @@ RCAP2H . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
 PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
 SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
 T2EX . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
-C51 COMPILER V9.54   MAIN                                                                  03/11/2022 12:53:00 PAGE 5   
+C51 COMPILER V9.54   MAIN                                                                  03/11/2022 19:44:01 PAGE 5   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -209,6 +221,7 @@ ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
 Temp1. . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_INT    0000H  2
 ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
 Temp2. . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_INT    0002H  2
+LCD_Init . . . . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
 TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
 ET2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
@@ -230,6 +243,7 @@ SM1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009EH  1
 TL1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008BH  1
 SM2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009DH  1
 TL2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CCH  1
+_LCD_ShowString. . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 PT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B9H  1
 objTemp. . . . . . . . . . . . . . . .  PUBLIC   DATA   FLOAT    0004H  4
 RS0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D3H  1
@@ -244,14 +258,14 @@ PX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
 DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
 DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
 envTemp. . . . . . . . . . . . . . . .  PUBLIC   DATA   FLOAT    0008H  4
-EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
-REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
-C51 COMPILER V9.54   MAIN                                                                  03/11/2022 12:53:00 PAGE 6   
+C51 COMPILER V9.54   MAIN                                                                  03/11/2022 19:44:01 PAGE 6   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
 
 
+EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
+REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
 T2MOD. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C9H  1
 T2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
 RXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
@@ -264,7 +278,7 @@ ReadEnvironTemp. . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    144    ----
+   CODE SIZE        =    160    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
@@ -278,4 +292,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
