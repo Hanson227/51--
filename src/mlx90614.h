@@ -1,13 +1,13 @@
-#ifndef __mlx90614_H__
-#define __mlx90614_H__
+#ifndef __MLX90614_H__
+#define __MLX90614_H__
 
-void start_bit(void);
-void stop_bit(void);
+void start_bit();
+void stop_bit();
 void tx_byte(unsigned char dat_byte);
-void sen_bit(void);
-unsigned char rx_byte(void);
-void receiv_bit(void);
-unsigned int ReadObjectTemp(void);
-unsigned int ReadEnvironTemp(void);
+void MLX90614_send_bit();
+unsigned char rx_byte();
+void MLX90614_receive_bit();
+unsigned int ReadObjectTemp();
+unsigned int ReadEnvironTemp();
 
 #endif

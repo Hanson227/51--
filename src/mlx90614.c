@@ -1,5 +1,5 @@
-#include <REGX52.H>
 #include <intrins.h>
+#include <REGX52.H>
 
 sbit SCL=P2^1;
 sbit SDA=P2^0;
@@ -14,7 +14,7 @@ unsigned char bit_in=1;
 
 unsigned char DataH,DataL,Pecreg;
 
-void start_bit(void)
+void start_bit()
 {
         SDA=1;
         _nop_();_nop_();_nop_();_nop_();_nop_();
@@ -26,7 +26,7 @@ void start_bit(void)
         _nop_();_nop_();_nop_();_nop_();_nop_();
 }
 
-void stop_bit(void)
+void stop_bit()
 {
         SCL=0;
         _nop_();_nop_();_nop_();_nop_();_nop_();
@@ -37,79 +37,10 @@ void stop_bit(void)
         SDA=1;
 }
 
-
-//---------发送一个字节---------
-void tx_byte(unsigned char dat_byte)
+void MLX90614_receive_bit()
 {
-        char i,n,dat;
-        n=Nack_counter;
-
-        dat=dat_byte;
-        for(i=0;i<8;i++)
-        {
-                if(dat&0x80)
-                bit_out=1;
-                else
-                bit_out=0;
-                send_bit();
-                dat=dat<<1;
-        }
-        receive_bit();
-        if(bit_in==1)
-        {
-                stop_bit();
-                if(n!=0)
-                {
-                   n--;   
-                }
-                else
-                        return;
-        }
-        else
-                return;
-        start_bit();
-        tx_byte(dat_byte);                //函数自身回调
-}
-
-//-----------发送一个位---------
-void send_bit(void)
-{
-        if(bit_out==0)
-        {
-            SDA=0;
-        }      
-        else
-        {
-            SDA=1;  
-        }        
-        _nop_();
-        SCL=1;
-        _nop_();_nop_();_nop_();_nop_();
-        _nop_();_nop_();_nop_();_nop_();
-        SCL=0;
-        _nop_();_nop_();_nop_();_nop_();
-        _nop_();_nop_();_nop_();_nop_();
-}
-//----------接收一个字节--------
-unsigned char rx_byte(void)
-{
-        unsigned char i,dat;
-        dat=0;
-        for(i=0;i<8;i++)
-        {
-                dat=dat<<1;
-                receive_bit();
-                if(bit_in==1)
-                dat=dat+1;
-        }
-        send_bit();
-        return dat;
-}
-
-//----------接收一个位----------
-void receive_bit(void)
-{
-        SDA=1;bit_in=1;
+        SDA=1;
+        bit_in=1;
         SCL=1;
         _nop_();_nop_();_nop_();_nop_();
         _nop_();_nop_();_nop_();_nop_();
@@ -120,7 +51,89 @@ void receive_bit(void)
         _nop_();_nop_();_nop_();_nop_();
 }
 
-unsigned int ReadObjectTemp(void)
+//-----------发送一个位---------
+void MLX90614_send_bit()
+{
+    if(bit_out==0)
+    {
+        SDA=0;
+    }      
+    else
+    {
+        SDA=1;  
+    }        
+    _nop_();
+    SCL=1;
+    _nop_();_nop_();_nop_();_nop_();
+    _nop_();_nop_();_nop_();_nop_();
+    SCL=0;
+    _nop_();_nop_();_nop_();_nop_();
+    _nop_();_nop_();_nop_();_nop_();
+}
+
+//---------发送一个字节---------
+void tx_byte(unsigned char dat_byte) reentrant
+{
+        char i,n,dat;
+        n=Nack_counter;
+TX_again:
+        dat=dat_byte;
+        for(i=0;i<8;i++)
+        {
+                if(dat&0x80)
+                        bit_out=1;
+                else
+                        bit_out=0;
+                MLX90614_send_bit();
+                dat=dat<<1;
+        }
+        MLX90614_receive_bit();
+        if(bit_in==1)
+        {
+                stop_bit();
+                if(n!=0)
+                {
+                   n--;   
+                   goto Repeat;
+                }
+                else
+                {
+                        goto exit;
+                }
+                        
+        }
+        else
+        {
+                goto exit;
+        }   
+Repeat:        
+        start_bit();
+        goto TX_again;                //函数自身回调
+exit:
+    ;
+}
+
+
+//----------接收一个字节--------
+unsigned char rx_byte()
+{
+        unsigned char i,dat;
+        dat=0;
+        for(i=0;i<8;i++)
+        {
+                dat=dat<<1;
+                MLX90614_receive_bit();
+                if(bit_in==1)
+                dat=dat+1;
+        }
+        MLX90614_send_bit();
+        return dat;
+}
+
+//----------接收一个位----------
+
+
+unsigned int ReadObjectTemp()
 {
         start_bit();
         tx_byte(0x00); //Send SlaveAddress
@@ -137,7 +150,7 @@ unsigned int ReadObjectTemp(void)
         return(DataH*256+DataL);
 }
 
-unsigned int ReadEnvironTemp(void)
+unsigned int ReadEnvironTemp()
 {
         start_bit();
         tx_byte(0x00); //Send SlaveAddress

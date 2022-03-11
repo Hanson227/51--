@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:34:13 PAGE 1   
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MLX90614
@@ -9,8 +9,8 @@ COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.exe .\SRC\MLX90614.C PRINT(.\build\Deb
 
 line level    source
 
-   1          #include <REGX52.H>
-   2          #include <intrins.h>
+   1          #include <intrins.h>
+   2          #include <REGX52.H>
    3          
    4          sbit SCL=P2^1;
    5          sbit SDA=P2^0;
@@ -25,7 +25,7 @@ line level    source
   14          
   15          unsigned char DataH,DataL,Pecreg;
   16          
-  17          void start_bit(void)
+  17          void start_bit()
   18          {
   19   1              SDA=1;
   20   1              _nop_();_nop_();_nop_();_nop_();_nop_();
@@ -37,7 +37,7 @@ line level    source
   26   1              _nop_();_nop_();_nop_();_nop_();_nop_();
   27   1      }
   28          
-  29          void stop_bit(void)
+  29          void stop_bit()
   30          {
   31   1              SCL=0;
   32   1              _nop_();_nop_();_nop_();_nop_();_nop_();
@@ -48,133 +48,719 @@ line level    source
   37   1              SDA=1;
   38   1      }
   39          
-  40          
-  41          //---------发送一个字节---------
-  42          void tx_byte(unsigned char dat_byte)
-  43          {
-  44   1              char i,n,dat;
-  45   1              n=Nack_counter;
-  46   1      
-  47   1              dat=dat_byte;
-  48   1              for(i=0;i<8;i++)
-  49   1              {
-  50   2                      if(dat&0x80)
-  51   2                      bit_out=1;
-  52   2                      else
-  53   2                      bit_out=0;
-C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:34:13 PAGE 2   
+  40          void MLX90614_receive_bit()
+  41          {
+  42   1              SDA=1;
+  43   1              bit_in=1;
+  44   1              SCL=1;
+  45   1              _nop_();_nop_();_nop_();_nop_();
+  46   1              _nop_();_nop_();_nop_();_nop_();
+  47   1              bit_in=SDA;
+  48   1              _nop_();
+  49   1              SCL=0;
+  50   1              _nop_();_nop_();_nop_();_nop_();
+  51   1              _nop_();_nop_();_nop_();_nop_();
+  52   1      }
+  53          
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 2   
 
-  54   2                      sen_bit();
-*** WARNING C206 IN LINE 54 OF .\SRC\MLX90614.C: 'sen_bit': missing function-prototype
-  55   2                      dat=dat<<1;
-  56   2              }
-  57   1              receiv_bit();
-*** WARNING C206 IN LINE 57 OF .\SRC\MLX90614.C: 'receiv_bit': missing function-prototype
-  58   1              if(bit_in==1)
-  59   1              {
-  60   2                      stop_bit();
-  61   2                      if(n!=0)
-  62   2                      {
-  63   3                         n--;   
-  64   3                      }
-  65   2                      else
-  66   2                              return;
-  67   2              }
-  68   1              else
-  69   1                      return;
-  70   1              start_bit();
-  71   1              tx_byte(dat_byte);                //函数自身回调
-*** WARNING C265 IN LINE 71 OF .\SRC\MLX90614.C: '_tx_byte': recursive call to non-reentrant function
+  54          //-----------发送一个位---------
+  55          void MLX90614_send_bit()
+  56          {
+  57   1          if(bit_out==0)
+  58   1          {
+  59   2              SDA=0;
+  60   2          }      
+  61   1          else
+  62   1          {
+  63   2              SDA=1;  
+  64   2          }        
+  65   1          _nop_();
+  66   1          SCL=1;
+  67   1          _nop_();_nop_();_nop_();_nop_();
+  68   1          _nop_();_nop_();_nop_();_nop_();
+  69   1          SCL=0;
+  70   1          _nop_();_nop_();_nop_();_nop_();
+  71   1          _nop_();_nop_();_nop_();_nop_();
   72   1      }
   73          
-  74          //-----------发送一个位---------
-  75          void sen_bit(void)
+  74          //---------发送一个字节---------
+  75          void tx_byte(unsigned char dat_byte) reentrant
   76          {
-*** ERROR C231 IN LINE 76 OF .\SRC\MLX90614.C: 'sen_bit': redefinition
-  77   1              if(bit_out==0)
-  78   1              {
-  79   2                  SDA=0;
-  80   2              }      
-  81   1              else
+  77   1              char i,n,dat;
+  78   1              n=Nack_counter;
+  79   1      TX_again:
+  80   1              dat=dat_byte;
+  81   1              for(i=0;i<8;i++)
   82   1              {
-  83   2                  SDA=1;  
-  84   2              }        
-  85   1              _nop_();
-  86   1              SCL=1;
-  87   1              _nop_();_nop_();_nop_();_nop_();
-  88   1              _nop_();_nop_();_nop_();_nop_();
-  89   1              SCL=0;
-  90   1              _nop_();_nop_();_nop_();_nop_();
-  91   1              _nop_();_nop_();_nop_();_nop_();
-  92   1      }
-*** ERROR C231 IN LINE 92 OF .\SRC\MLX90614.C: 'sen_bit': redefinition
-  93          //----------接收一个字节--------
-  94          unsigned char rx_byte(void)
-  95          {
-  96   1              unsigned char i,dat;
-  97   1              dat=0;
-  98   1              for(i=0;i<8;i++)
-  99   1              {
- 100   2                      dat=dat<<1;
- 101   2                      receiv_bit();
- 102   2                      if(bit_in==1)
- 103   2                      dat=dat+1;
+  83   2                      if(dat&0x80)
+  84   2                              bit_out=1;
+  85   2                      else
+  86   2                              bit_out=0;
+  87   2                      MLX90614_send_bit();
+  88   2                      dat=dat<<1;
+  89   2              }
+  90   1              MLX90614_receive_bit();
+  91   1              if(bit_in==1)
+  92   1              {
+  93   2                      stop_bit();
+  94   2                      if(n!=0)
+  95   2                      {
+  96   3                         n--;   
+  97   3                         goto Repeat;
+  98   3                      }
+  99   2                      else
+ 100   2                      {
+ 101   3                              goto exit;
+ 102   3                      }
+ 103   2                              
  104   2              }
- 105   1              sen_bit();
- 106   1              return dat;
- 107   1      }
- 108          
- 109          //----------接收一个位----------
- 110          void receiv_bit(void)
-C51 COMPILER V9.54   MLX90614                                                              03/09/2022 22:34:13 PAGE 3   
+ 105   1              else
+ 106   1              {
+ 107   2                      goto exit;
+ 108   2              }   
+ 109   1      Repeat:        
+ 110   1              start_bit();
+ 111   1              goto TX_again;                //函数自身回调
+ 112   1      exit:
+ 113   1          ;
+ 114   1      }
+ 115          
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 3   
 
- 111          {
-*** ERROR C231 IN LINE 111 OF .\SRC\MLX90614.C: 'receiv_bit': redefinition
- 112   1              SDA=1;bit_in=1;
- 113   1              SCL=1;
- 114   1              _nop_();_nop_();_nop_();_nop_();
- 115   1              _nop_();_nop_();_nop_();_nop_();
- 116   1              bit_in=SDA;
- 117   1              _nop_();
- 118   1              SCL=0;
- 119   1              _nop_();_nop_();_nop_();_nop_();
- 120   1              _nop_();_nop_();_nop_();_nop_();
- 121   1      }
-*** ERROR C231 IN LINE 121 OF .\SRC\MLX90614.C: 'receiv_bit': redefinition
- 122          
- 123          unsigned int ReadObjectTemp(void)
- 124          {
- 125   1              start_bit();
- 126   1              tx_byte(0x00); //Send SlaveAddress
- 127   1              tx_byte(0x07); //Send Command
- 128   1              start_bit();
- 129   1              tx_byte(0x01);
- 130   1              bit_out=0;
- 131   1              DataL=rx_byte();
- 132   1              bit_out=0;
- 133   1              DataH=rx_byte();
- 134   1              bit_out=1;
- 135   1              Pecreg=rx_byte();
- 136   1              stop_bit();
- 137   1              return(DataH*256+DataL);
- 138   1      }
- 139          
- 140          unsigned int ReadEnvironTemp(void)
- 141          {
- 142   1              start_bit();
- 143   1              tx_byte(0x00); //Send SlaveAddress
- 144   1              tx_byte(0x06); //Send Command
- 145   1              start_bit();
- 146   1              tx_byte(0x01);
- 147   1              bit_out=0;
- 148   1              DataL=rx_byte();
- 149   1              bit_out=0;
- 150   1              DataH=rx_byte();
- 151   1              bit_out=1;
- 152   1              Pecreg=rx_byte();
- 153   1              stop_bit();
- 154   1              return(DataH*256+DataL);
- 155   1      }
- 156          
+ 116          
+ 117          //----------接收一个字节--------
+ 118          unsigned char rx_byte()
+ 119          {
+ 120   1              unsigned char i,dat;
+ 121   1              dat=0;
+ 122   1              for(i=0;i<8;i++)
+ 123   1              {
+ 124   2                      dat=dat<<1;
+ 125   2                      MLX90614_receive_bit();
+ 126   2                      if(bit_in==1)
+ 127   2                      dat=dat+1;
+ 128   2              }
+ 129   1              MLX90614_send_bit();
+ 130   1              return dat;
+ 131   1      }
+ 132          
+ 133          //----------接收一个位----------
+ 134          
+ 135          
+ 136          unsigned int ReadObjectTemp()
+ 137          {
+ 138   1              start_bit();
+ 139   1              tx_byte(0x00); //Send SlaveAddress
+ 140   1              tx_byte(0x07); //Send Command
+ 141   1              start_bit();
+ 142   1              tx_byte(0x01);
+ 143   1              bit_out=0;
+ 144   1              DataL=rx_byte();
+ 145   1              bit_out=0;
+ 146   1              DataH=rx_byte();
+ 147   1              bit_out=1;
+ 148   1              Pecreg=rx_byte();
+ 149   1              stop_bit();
+ 150   1              return(DataH*256+DataL);
+ 151   1      }
+ 152          
+ 153          unsigned int ReadEnvironTemp()
+ 154          {
+ 155   1              start_bit();
+ 156   1              tx_byte(0x00); //Send SlaveAddress
+ 157   1              tx_byte(0x06); //Send Command
+ 158   1              start_bit();
+ 159   1              tx_byte(0x01);
+ 160   1              bit_out=0;
+ 161   1              DataL=rx_byte();
+ 162   1              bit_out=0;
+ 163   1              DataH=rx_byte();
+ 164   1              bit_out=1;
+ 165   1              Pecreg=rx_byte();
+ 166   1              stop_bit();
+ 167   1              return(DataH*256+DataL);
+ 168   1      }
+ 169          
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 4   
 
-C51 COMPILATION COMPLETE.  3 WARNING(S),  4 ERROR(S)
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION start_bit (BEGIN)
+                                           ; SOURCE LINE # 17
+                                           ; SOURCE LINE # 18
+                                           ; SOURCE LINE # 19
+0000 D2A0              SETB    SDA
+                                           ; SOURCE LINE # 20
+0002 00                NOP     
+0003 00                NOP     
+0004 00                NOP     
+0005 00                NOP     
+0006 00                NOP     
+                                           ; SOURCE LINE # 21
+0007 D2A1              SETB    SCL
+                                           ; SOURCE LINE # 22
+0009 00                NOP     
+000A 00                NOP     
+000B 00                NOP     
+000C 00                NOP     
+000D 00                NOP     
+                                           ; SOURCE LINE # 23
+000E C2A0              CLR     SDA
+                                           ; SOURCE LINE # 24
+0010 00                NOP     
+0011 00                NOP     
+0012 00                NOP     
+0013 00                NOP     
+0014 00                NOP     
+                                           ; SOURCE LINE # 25
+0015 C2A1              CLR     SCL
+                                           ; SOURCE LINE # 26
+0017 00                NOP     
+0018 00                NOP     
+0019 00                NOP     
+001A 00                NOP     
+001B 00                NOP     
+                                           ; SOURCE LINE # 27
+001C 22                RET     
+             ; FUNCTION start_bit (END)
+
+             ; FUNCTION L?0027 (BEGIN)
+0000 120000      R     LCALL   _?tx_byte
+0003 120000      R     LCALL   start_bit
+0006 7F01              MOV     R7,#01H
+0008 120000      R     LCALL   _?tx_byte
+000B E4                CLR     A
+000C F500        R     MOV     bit_out,A
+000E 120000      R     LCALL   rx_byte
+0011 8F00        R     MOV     DataL,R7
+0013 E4                CLR     A
+0014 F500        R     MOV     bit_out,A
+0016 120000      R     LCALL   rx_byte
+0019 8F00        R     MOV     DataH,R7
+001B 750001      R     MOV     bit_out,#01H
+001E 120000      R     LCALL   rx_byte
+0021 8F00        R     MOV     Pecreg,R7
+             ; FUNCTION stop_bit (BEGIN)
+                                           ; SOURCE LINE # 29
+                                           ; SOURCE LINE # 30
+                                           ; SOURCE LINE # 31
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 5   
+
+0023 C2A1              CLR     SCL
+                                           ; SOURCE LINE # 32
+0025 00                NOP     
+0026 00                NOP     
+0027 00                NOP     
+0028 00                NOP     
+0029 00                NOP     
+                                           ; SOURCE LINE # 33
+002A C2A0              CLR     SDA
+                                           ; SOURCE LINE # 34
+002C 00                NOP     
+002D 00                NOP     
+002E 00                NOP     
+002F 00                NOP     
+0030 00                NOP     
+                                           ; SOURCE LINE # 35
+0031 D2A1              SETB    SCL
+                                           ; SOURCE LINE # 36
+0033 00                NOP     
+0034 00                NOP     
+0035 00                NOP     
+0036 00                NOP     
+0037 00                NOP     
+                                           ; SOURCE LINE # 37
+0038 D2A0              SETB    SDA
+                                           ; SOURCE LINE # 38
+003A 22                RET     
+             ; FUNCTION stop_bit (END)
+
+             ; FUNCTION MLX90614_receive_bit (BEGIN)
+                                           ; SOURCE LINE # 40
+                                           ; SOURCE LINE # 41
+                                           ; SOURCE LINE # 42
+0000 D2A0              SETB    SDA
+                                           ; SOURCE LINE # 43
+0002 750001      R     MOV     bit_in,#01H
+                                           ; SOURCE LINE # 44
+0005 D2A1              SETB    SCL
+                                           ; SOURCE LINE # 45
+0007 00                NOP     
+0008 00                NOP     
+0009 00                NOP     
+000A 00                NOP     
+                                           ; SOURCE LINE # 46
+000B 00                NOP     
+000C 00                NOP     
+000D 00                NOP     
+000E 00                NOP     
+                                           ; SOURCE LINE # 47
+000F A2A0              MOV     C,SDA
+0011 E4                CLR     A
+0012 33                RLC     A
+0013 F500        R     MOV     bit_in,A
+                                           ; SOURCE LINE # 48
+0015 00                NOP     
+                                           ; SOURCE LINE # 49
+0016 C2A1              CLR     SCL
+                                           ; SOURCE LINE # 50
+0018 00                NOP     
+0019 00                NOP     
+001A 00                NOP     
+001B 00                NOP     
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 6   
+
+                                           ; SOURCE LINE # 51
+001C 00                NOP     
+001D 00                NOP     
+001E 00                NOP     
+001F 00                NOP     
+                                           ; SOURCE LINE # 52
+0020 22                RET     
+             ; FUNCTION MLX90614_receive_bit (END)
+
+             ; FUNCTION MLX90614_send_bit (BEGIN)
+                                           ; SOURCE LINE # 55
+                                           ; SOURCE LINE # 56
+                                           ; SOURCE LINE # 57
+0000 E500        R     MOV     A,bit_out
+0002 7004              JNZ     ?C0004
+                                           ; SOURCE LINE # 58
+                                           ; SOURCE LINE # 59
+0004 C2A0              CLR     SDA
+                                           ; SOURCE LINE # 60
+0006 8002              SJMP    ?C0005
+0008         ?C0004:
+                                           ; SOURCE LINE # 62
+                                           ; SOURCE LINE # 63
+0008 D2A0              SETB    SDA
+                                           ; SOURCE LINE # 64
+000A         ?C0005:
+                                           ; SOURCE LINE # 65
+000A 00                NOP     
+                                           ; SOURCE LINE # 66
+000B D2A1              SETB    SCL
+                                           ; SOURCE LINE # 67
+000D 00                NOP     
+000E 00                NOP     
+000F 00                NOP     
+0010 00                NOP     
+                                           ; SOURCE LINE # 68
+0011 00                NOP     
+0012 00                NOP     
+0013 00                NOP     
+0014 00                NOP     
+                                           ; SOURCE LINE # 69
+0015 C2A1              CLR     SCL
+                                           ; SOURCE LINE # 70
+0017 00                NOP     
+0018 00                NOP     
+0019 00                NOP     
+001A 00                NOP     
+                                           ; SOURCE LINE # 71
+001B 00                NOP     
+001C 00                NOP     
+001D 00                NOP     
+001E 00                NOP     
+                                           ; SOURCE LINE # 72
+001F 22                RET     
+             ; FUNCTION MLX90614_send_bit (END)
+
+             ; FUNCTION _?tx_byte (BEGIN)
+                                           ; SOURCE LINE # 75
+0000 1500        E     DEC     ?C_IBP
+0002 A800        E     MOV     R0,?C_IBP
+0004 A607              MOV     @R0,AR7
+0006 1500        E     DEC     ?C_IBP
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 7   
+
+0008 1500        E     DEC     ?C_IBP
+000A 1500        E     DEC     ?C_IBP
+                                           ; SOURCE LINE # 78
+000C A800        E     MOV     R0,?C_IBP
+000E 08                INC     R0
+000F 7601              MOV     @R0,#01H
+                                           ; SOURCE LINE # 79
+0011         TX_again:
+                                           ; SOURCE LINE # 80
+0011 E500        E     MOV     A,?C_IBP
+0013 2403              ADD     A,#03H
+0015 F8                MOV     R0,A
+0016 E6                MOV     A,@R0
+0017 A800        E     MOV     R0,?C_IBP
+0019 08                INC     R0
+001A 08                INC     R0
+001B F6                MOV     @R0,A
+                                           ; SOURCE LINE # 81
+001C A800        E     MOV     R0,?C_IBP
+001E E4                CLR     A
+001F F6                MOV     @R0,A
+0020         ?C0008:
+0020 A900        E     MOV     R1,?C_IBP
+0022 C3                CLR     C
+0023 E7                MOV     A,@R1
+0024 6480              XRL     A,#080H
+0026 9488              SUBB    A,#088H
+0028 5025              JNC     ?C0009
+                                           ; SOURCE LINE # 82
+                                           ; SOURCE LINE # 83
+002A A800        E     MOV     R0,?C_IBP
+002C 08                INC     R0
+002D 08                INC     R0
+002E E6                MOV     A,@R0
+002F 30E705            JNB     ACC.7,?C0011
+                                           ; SOURCE LINE # 84
+0032 750001      R     MOV     bit_out,#01H
+0035 8003              SJMP    ?C0012
+0037         ?C0011:
+                                           ; SOURCE LINE # 86
+0037 E4                CLR     A
+0038 F500        R     MOV     bit_out,A
+003A         ?C0012:
+                                           ; SOURCE LINE # 87
+003A 120000      R     LCALL   MLX90614_send_bit
+                                           ; SOURCE LINE # 88
+003D A800        E     MOV     R0,?C_IBP
+003F 08                INC     R0
+0040 08                INC     R0
+0041 C000              PUSH    AR0
+0043 E6                MOV     A,@R0
+0044 FF                MOV     R7,A
+0045 25E0              ADD     A,ACC
+0047 D000              POP     AR0
+0049 F6                MOV     @R0,A
+                                           ; SOURCE LINE # 89
+004A A800        E     MOV     R0,?C_IBP
+004C 06                INC     @R0
+004D 80D1              SJMP    ?C0008
+004F         ?C0009:
+                                           ; SOURCE LINE # 90
+004F 120000      R     LCALL   MLX90614_receive_bit
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 8   
+
+                                           ; SOURCE LINE # 91
+0052 E500        R     MOV     A,bit_in
+0054 B40114            CJNE    A,#01H,?C0019
+                                           ; SOURCE LINE # 92
+                                           ; SOURCE LINE # 93
+0057 120000      R     LCALL   stop_bit
+                                           ; SOURCE LINE # 94
+005A A800        E     MOV     R0,?C_IBP
+005C 08                INC     R0
+005D A900              MOV     R1,AR0
+005F E7                MOV     A,@R1
+0060 6009              JZ      ?C0019
+                                           ; SOURCE LINE # 95
+                                           ; SOURCE LINE # 96
+0062 A800        E     MOV     R0,?C_IBP
+0064 08                INC     R0
+0065 16                DEC     @R0
+                                           ; SOURCE LINE # 97
+                                           ; SOURCE LINE # 98
+                                           ; SOURCE LINE # 100
+                                           ; SOURCE LINE # 101
+                                           ; SOURCE LINE # 102
+                                           ; SOURCE LINE # 104
+                                           ; SOURCE LINE # 106
+                                           ; SOURCE LINE # 107
+                                           ; SOURCE LINE # 108
+                                           ; SOURCE LINE # 109
+0066         Repeat:
+                                           ; SOURCE LINE # 110
+0066 120000      R     LCALL   start_bit
+                                           ; SOURCE LINE # 111
+0069 80A6              SJMP    TX_again
+                                           ; SOURCE LINE # 112
+006B         ?C0019:
+006B E500        E     MOV     A,?C_IBP
+006D 2404              ADD     A,#04H
+006F F500        E     MOV     ?C_IBP,A
+0071 22                RET     
+             ; FUNCTION _?tx_byte (END)
+
+             ; FUNCTION rx_byte (BEGIN)
+                                           ; SOURCE LINE # 118
+                                           ; SOURCE LINE # 119
+                                           ; SOURCE LINE # 121
+;---- Variable 'dat' assigned to Register 'R7' ----
+0000 E4                CLR     A
+0001 FF                MOV     R7,A
+                                           ; SOURCE LINE # 122
+;---- Variable 'i' assigned to Register 'R6' ----
+0002 FE                MOV     R6,A
+0003         ?C0020:
+                                           ; SOURCE LINE # 123
+                                           ; SOURCE LINE # 124
+0003 EF                MOV     A,R7
+0004 25E0              ADD     A,ACC
+0006 FF                MOV     R7,A
+                                           ; SOURCE LINE # 125
+0007 120000      R     LCALL   MLX90614_receive_bit
+                                           ; SOURCE LINE # 126
+000A E500        R     MOV     A,bit_in
+000C B40101            CJNE    A,#01H,?C0022
+                                           ; SOURCE LINE # 127
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 9   
+
+000F 0F                INC     R7
+                                           ; SOURCE LINE # 128
+0010         ?C0022:
+0010 0E                INC     R6
+0011 BE08EF            CJNE    R6,#08H,?C0020
+0014         ?C0021:
+                                           ; SOURCE LINE # 129
+0014 120000      R     LCALL   MLX90614_send_bit
+                                           ; SOURCE LINE # 130
+                                           ; SOURCE LINE # 131
+0017         ?C0024:
+0017 22                RET     
+             ; FUNCTION rx_byte (END)
+
+             ; FUNCTION ReadObjectTemp (BEGIN)
+                                           ; SOURCE LINE # 136
+                                           ; SOURCE LINE # 137
+                                           ; SOURCE LINE # 138
+0000 120000      R     LCALL   start_bit
+                                           ; SOURCE LINE # 139
+0003 7F00              MOV     R7,#00H
+0005 120000      R     LCALL   _?tx_byte
+                                           ; SOURCE LINE # 140
+0008 7F07              MOV     R7,#07H
+                                           ; SOURCE LINE # 141
+                                           ; SOURCE LINE # 142
+                                           ; SOURCE LINE # 143
+                                           ; SOURCE LINE # 144
+                                           ; SOURCE LINE # 145
+                                           ; SOURCE LINE # 146
+                                           ; SOURCE LINE # 147
+                                           ; SOURCE LINE # 148
+                                           ; SOURCE LINE # 149
+000A 120000      R     LCALL   L?0027
+                                           ; SOURCE LINE # 150
+000D E500        R     MOV     A,DataH
+000F FE                MOV     R6,A
+0010 7C00              MOV     R4,#00H
+0012 E4                CLR     A
+0013 2500        R     ADD     A,DataL
+0015 FF                MOV     R7,A
+0016 EC                MOV     A,R4
+0017 3E                ADDC    A,R6
+0018 FE                MOV     R6,A
+                                           ; SOURCE LINE # 151
+0019         ?C0025:
+0019 22                RET     
+             ; FUNCTION ReadObjectTemp (END)
+
+             ; FUNCTION ReadEnvironTemp (BEGIN)
+                                           ; SOURCE LINE # 153
+                                           ; SOURCE LINE # 154
+                                           ; SOURCE LINE # 155
+0000 120000      R     LCALL   start_bit
+                                           ; SOURCE LINE # 156
+0003 7F00              MOV     R7,#00H
+0005 120000      R     LCALL   _?tx_byte
+                                           ; SOURCE LINE # 157
+0008 7F06              MOV     R7,#06H
+                                           ; SOURCE LINE # 158
+                                           ; SOURCE LINE # 159
+                                           ; SOURCE LINE # 160
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 10  
+
+                                           ; SOURCE LINE # 161
+                                           ; SOURCE LINE # 162
+                                           ; SOURCE LINE # 163
+                                           ; SOURCE LINE # 164
+                                           ; SOURCE LINE # 165
+                                           ; SOURCE LINE # 166
+000A 120000      R     LCALL   L?0027
+                                           ; SOURCE LINE # 167
+000D E500        R     MOV     A,DataH
+000F FE                MOV     R6,A
+0010 7C00              MOV     R4,#00H
+0012 E4                CLR     A
+0013 2500        R     ADD     A,DataL
+0015 FF                MOV     R7,A
+0016 EC                MOV     A,R4
+0017 3E                ADDC    A,R6
+0018 FE                MOV     R6,A
+                                           ; SOURCE LINE # 168
+0019         ?C0026:
+0019 22                RET     
+             ; FUNCTION ReadEnvironTemp (END)
+
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 11  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P0 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0080H  1
+P1 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0090H  1
+rx_byte. . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  i. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
+  dat. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+P2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A0H  1
+P3 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B0H  1
+_?tx_byte. . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  dat_byte . . . . . . . . . . . . . .  AUTO     IDATA  U_CHAR   0003H  1
+  i. . . . . . . . . . . . . . . . . .  AUTO     IDATA  CHAR     0000H  1
+  n. . . . . . . . . . . . . . . . . .  AUTO     IDATA  CHAR     0001H  1
+  dat. . . . . . . . . . . . . . . . .  AUTO     IDATA  CHAR     0002H  1
+  TX_again . . . . . . . . . . . . . .  LABEL    CODE   LABEL    -----  -----
+  Repeat . . . . . . . . . . . . . . .  LABEL    CODE   LABEL    -----  -----
+  exit . . . . . . . . . . . . . . . .  LABEL    CODE   LABEL    -----  -----
+AC . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D6H  1
+T0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+T1 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+EA . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AFH  1
+T2 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0090H  1
+IE . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A8H  1
+P0_0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0080H  1
+P1_0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0090H  1
+P0_1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0081H  1
+P2_0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A0H  1
+P1_1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
+P0_2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0082H  1
+P3_0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
+P2_1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A1H  1
+P1_2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0092H  1
+P0_3 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0083H  1
+P3_1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
+P2_2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A2H  1
+P1_3 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0093H  1
+P0_4 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0084H  1
+P3_2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
+P2_3 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A3H  1
+P1_4 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0094H  1
+P0_5 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0085H  1
+EXF2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CEH  1
+RD . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+P3_3 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
+P2_4 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A4H  1
+P1_5 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0095H  1
+P0_6 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0086H  1
+P3_4 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+P2_5 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A5H  1
+P1_6 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0096H  1
+P0_7 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0087H  1
+P3_5 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+ES . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
+P2_6 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A6H  1
+P1_7 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0097H  1
+P3_6 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+P2_7 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A7H  1
+IP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B8H  1
+P3_7 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 12  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+RI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0098H  1
+CY . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D7H  1
+INT0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
+INT1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
+TI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
+RCAP2H . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
+PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
+SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
+T2EX . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
+OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
+MLX90614_send_bit. . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+RCAP2L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
+C_T2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C9H  1
+WR . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+RCLK . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CDH  1
+TCLK . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CCH  1
+SBUF . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0099H  1
+PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
+SCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
+TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
+TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
+IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
+IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
+B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
+DataH. . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0000H  1
+CP_RL2 . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
+ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
+DataL. . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0001H  1
+ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
+ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
+TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
+ET2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
+TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
+TF2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CFH  1
+RB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
+TH0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008CH  1
+EX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A8H  1
+IT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0088H  1
+TH1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008DH  1
+EX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AAH  1
+TB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009BH  1
+IT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008AH  1
+TH2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
+P. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D0H  1
+SM0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009FH  1
+TL0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008AH  1
+SM1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009EH  1
+TL1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008BH  1
+start_bit. . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+SM2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009DH  1
+TL2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CCH  1
+PT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B9H  1
+RS0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D3H  1
+PT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BBH  1
+RS1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D4H  1
+PT2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BDH  1
+TR0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008CH  1
+C51 COMPILER V9.54   MLX90614                                                              03/11/2022 12:50:42 PAGE 13  
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
+SDA. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A0H  1
+TR2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CAH  1
+PX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
+Pecreg . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0002H  1
+PX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
+DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
+DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
+MLX90614_receive_bit . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+SCL. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A1H  1
+EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
+REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
+T2MOD. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C9H  1
+T2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
+stop_bit . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0023H  -----
+RXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
+TXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
+ReadObjectTemp . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
+F1 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D1H  1
+bit_in . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0003H  1
+bit_out. . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0004H  1
+PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
+ReadEnvironTemp. . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    343    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
